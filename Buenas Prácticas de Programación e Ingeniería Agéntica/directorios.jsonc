@@ -1,0 +1,235 @@
+/**
+ * =============================================================================
+ * ÁRBOL DE DIRECTORIOS Y CATÁLOGO DE ESTÁNDARES PARA REPOSITORIOS AGÉNTICOS
+ * =============================================================================
+ * Archivo: Estándares y Especificaciones para Repositorios Agénticos/directorios.jsonc
+ * Propósito: Mapa integral y semántico de navegación del sistema de documentación,
+ *            especificaciones de arquitectura y buenas prácticas de ingeniería de
+ *            software orientadas a desarrollo individual y agentes autónomos (IA).
+ * Estándar: JSONC (JSON con Comentarios - RFC 8259)
+ * Versión: 2.1.0
+ * Última Actualización: 2026-08-27T17:30:00Z
+ * =============================================================================
+ */
+{
+  "$schema": "https://json.schemastore.org/directory-map-v1.json",
+  "id": "map_6wkz23rjhwbyerzavyysdrzf3y",
+  "name": "catalogo_directorios_buenas_practicas",
+  "title": "Árbol de Directorios y Catálogo de Estándares para Repositorios Agénticos",
+  "file_path": "Buenas Prácticas de Programación e Ingeniería Agéntica/directorios.jsonc",
+  "version": "2.1.0",
+  "category": "metadata",
+  "domain": "repository_catalog",
+  "tags": [
+    "directory-map",
+    "standards",
+    "architecture",
+    "agentic",
+    "specifications",
+    "index"
+  ],
+  "description": "Mapa integral y semántico de navegación del sistema de documentación, especificaciones de arquitectura y buenas prácticas de ingeniería de software orientadas a desarrollo individual y agentes autónomos (IA).",
+  "owner": "AI Engineering & Architecture Team",
+  "status": "active",
+  "created_at": "2026-08-26T00:00:00Z",
+  "updated_at": "2026-08-27T17:30:00Z",
+  "schema_version": "1.0.0",
+  "project_name": "Buenas Prácticas de Programación e Ingeniería Agéntica",
+  "architecture_model": "Layered Documentation & Cognitive Operational Environment",
+  "agent_guidelines": {
+    "traversal_strategy": "Progressive Disclosure (Index -> Frontmatter -> Targeted File Body)",
+    "context_budget_limit": "32 KiB combined documentation per operational turn",
+    "rule_precedence": "System Directives > AGENTS.md > Task Context > User Request > Heuristics"
+  },
+
+  /* =========================================================================
+   * COLECCIÓN 1: ESTÁNDARES Y ESPECIFICACIONES DE REPOSITORIOS (SPECS)
+   * ========================================================================= */
+  "especificaciones_repositorio": {
+    "00_Estandares_Globales_y_Esquemas": {
+      "01_global_standards.md": "Directrices globales, codificación UTF-8/LF, rutas relativas y jerarquía.",
+      "02_individual_repo_standards.md": "Estándar para repositorios individuales (1 humano + IA) con arquitectura por capas.",
+      "03_docstrings_and_code_standards.md": "Normas de Google Style Docstrings y tipado estricto con Python typing/Pydantic.",
+      "04_metadata_and_field_schemas.md": "Campos de metadatos YAML de Frontmatter y esquema JSON Schema Draft-07.",
+      "05_exception_handling_and_errors.md": "Taxonomía de excepciones de dominio, payloads JSON RFC 9457 y resiliencia.",
+      "06_id_and_naming_standards.md": "Especificación y taxonomía de Identificadores Únicos (TypeID, UUIDv7, ULID y Slugs).",
+      "07_yaml_frontmatter_specification.md": "Especificación y plantilla canónica de metadatos YAML Frontmatter y esquema JSON Schema."
+    },
+    "01_Archivos_Imprescindibles": {
+      "01_readme_specification.md": "Especificación y plantilla de README.md (visión, quickstart reproducible y badges).",
+      "02_architecture_specification.md": "Especificación y plantilla de ARCHITECTURE.md (topología hexagonal y diagramas Mermaid).",
+      "03_agents_specification.md": "Especificación y plantilla de AGENTS.md (contrato operativo y matriz de permisos de IA).",
+      "04_contributing_specification.md": "Especificación y plantilla de CONTRIBUTING.md (flujo Git y Conventional Commits).",
+      "05_gitignore_specification.md": "Especificación y plantilla de .gitignore (patrones de exclusión y prevención de secretos).",
+      "06_license_specification.md": "Especificación y plantilla de LICENSE (marco legal MIT License).",
+      "07_editorconfig_specification.md": "Especificación y plantilla de .editorconfig (indentación y finales de línea).",
+      "08_gitattributes_specification.md": "Especificación y plantilla de .gitattributes (normalización estricta de finales de línea LF y diffs)."
+    },
+    "02_Archivos_Recomendables": {
+      "01_development_specification.md": "Especificación y plantilla de DEVELOPMENT.md (procedimientos técnicos locales y debug).",
+      "02_testing_specification.md": "Especificación y plantilla de TESTING.md (pirámide de tests, fixtures y regla de inmutabilidad).",
+      "03_changelog_specification.md": "Especificación y plantilla de CHANGELOG.md (Keep a Changelog 1.1.0 y SemVer 2.0.0).",
+      "04_security_specification.md": "Especificación y plantilla de SECURITY.md (política de seguridad y no-exposición de claves).",
+      "05_roadmap_specification.md": "Especificación y plantilla de ROADMAP.md (prioridades y sección Fuera de Alcance).",
+      "06_troubleshooting_specification.md": "Especificación y plantilla de TROUBLESHOOTING.md (matriz de síntomas, causas y soluciones).",
+      "07_debugging_specification.md": "Especificación y plantilla de DEBUGGING.md (protocolos de depuración interactiva, debugpy y diagnóstico)."
+    },
+    "03_Segun_Complejidad": {
+      "01_context_specification.md": "Especificación y plantilla de CONTEXT.md (problema, usuarios objetivo y suposiciones).",
+      "02_domain_specification.md": "Especificación y plantilla de DOMAIN.md (entidades, máquinas de estados e invariantes).",
+      "03_specification_specification.md": "Especificación y plantilla de SPECIFICATION.md (requisitos funcionales y no funcionales).",
+      "04_style_guide_specification.md": "Especificación y plantilla de STYLE_GUIDE.md (convenciones de código y logging).",
+      "05_tech_stack_specification.md": "Especificación y plantilla de TECH_STACK.md (tabla de lenguajes, frameworks y versiones).",
+      "06_operations_specification.md": "Especificación y plantilla de OPERATIONS.md (gestión de entornos y límites en producción).",
+      "07_glossary_specification.md": "Especificación y plantilla de GLOSSARY.md (diccionario terminológico oficial).",
+      "08_faq_specification.md": "Especificación y plantilla de FAQ.md (preguntas frecuentes técnicas y autoayuda).",
+      "09_ai_providers_specification.md": "Especificación de archivos para proveedores de IA (CLAUDE.md, GEMINI.md, copilot).",
+      "10_repo_map_specification.md": "Especificación y plantilla de REPO_MAP.md (mapa semántico de puntos de entrada y tests).",
+      "11_index_specification.md": "Especificación y plantilla de docs/INDEX.md (mapa de bajo consumo de contexto y progressive disclosure).",
+      "12_gitmodules_specification.md": "Especificación de gestión segura de submódulos Git (.gitmodules) y guardrails para agentes."
+    },
+    "04_Proyectos_Maduros": {
+      "01_adr_system_specification.md": "Especificación y plantilla de ADRs (docs/adr/ para decisiones de arquitectura).",
+      "02_codeowners_specification.md": "Especificación y plantilla de CODEOWNERS (responsabilidad humana y zonas sensibles).",
+      "03_github_automation_specification.md": "Especificación de automatización de GitHub (Actions, dependabot, templates).",
+      "04_support_specification.md": "Especificación y plantilla de SUPPORT.md (canales oficiales de ayuda y soporte).",
+      "05_citation_specification.md": "Especificación y plantilla de CITATION.cff (citación académica y bibliográfica).",
+      "06_code_of_conduct_specification.md": "Especificación y plantilla de CODE_OF_CONDUCT.md (Contributor Covenant 2.1 e interacciones de agentes).",
+      "07_funding_specification.md": "Especificación y configuración de patrocinio (.github/FUNDING.yml y botones de donación)."
+    }
+  },
+
+  /* =========================================================================
+   * COLECCIÓN 2: BUENAS PRÁCTICAS DE PROGRAMACIÓN E INGENIERÍA AGÉNTICA
+   * ========================================================================= */
+  "buenas_practicas_programacion": {
+    "01_Principios_Universales_y_Diseno": {
+      "01_dry_principle.md": "Don't Repeat Yourself: centralización de lógica autoritativa y límites ante duplicación coincidente.",
+      "02_kiss_principle.md": "Keep It Simple, Stupid: simplicidad intencional frente a sobre-ingeniería generada por LLMs.",
+      "03_yagni_principle.md": "You Aren't Gonna Need It: implementación estrictamente bajo demanda comprobada.",
+      "04_solid_principles.md": "Principios SOLID aplicados a arquitecturas agénticas y modelos orientados a objetos.",
+      "05_clean_code.md": "Código limpio, legibilidad humana/agéntica y nombres semánticos inequívocos.",
+      "06_defensive_programming.md": "Validación en fronteras del sistema, aserciones y manejo de entradas hostiles o malformadas.",
+      "07_fail_fast.md": "Fallo temprano y explícito con contexto enriquecido ante precondiciones rotas.",
+      "08_law_of_demeter.md": "Principio de menor conocimiento y reducción de acoplamiento entre objetos.",
+      "09_composition_over_inheritance.md": "Composición de comportamientos mediante protocolos e inyección frente a jerarquías rígidas.",
+      "10_separation_of_concerns.md": "Separación de responsabilidades entre lógica de dominio, persistencia e infraestructura.",
+      "11_single_level_of_abstraction.md": "Mantenimiento de un nivel de abstracción uniforme por función o método.",
+      "12_boy_scout_rule.md": "Regla del Boy Scout: dejar el código más limpio de lo que se encontró en cada turno.",
+      "13_convention_over_configuration.md": "Convention over Configuration: reducción de sobrecarga declarativa y predictibilidad para agentes."
+    },
+    "02_Patrones_Arquitectura_y_Estructura": {
+      "01_hexagonal_architecture.md": "Puertos y adaptadores para aislamiento total del núcleo de dominio de la infraestructura.",
+      "02_clean_architecture.md": "Regla de dependencias concéntricas hacia el dominio puro.",
+      "03_repository_pattern.md": "Abstracción y desacoplamiento de la capa de persistencia y base de datos.",
+      "04_dependency_injection.md": "Inversión de control y tipado de dependencias para testabilidad y mocking.",
+      "05_factory_pattern.md": "Creación encapsulada y tipada de objetos complejos y adaptadores de agentes.",
+      "06_strategy_pattern.md": "Intercambio polimórfico de algoritmos de planificación y razonamiento en runtime.",
+      "07_pipeline_pattern.md": "Procesamiento secuencial e idempotente de datos mediante etapas desacopladas.",
+      "08_cqrs_pattern.md": "Segregación de responsabilidades de comando (mutación) y consulta (lectura).",
+      "09_event_driven_architecture.md": "Comunicación asíncrona mediante publicación/suscripción de eventos tipados.",
+      "10_modular_monolith.md": "Monolito modular con límites de dominio estrictos previo a microservicios.",
+      "11_expand_and_contract_pattern.md": "Patrón Expand and Contract (Parallel Change) para migraciones y refactorizaciones sin downtime."
+    },
+    "03_Calidad_Testing_y_CI_CD": {
+      "01_clean_architecture_testing.md": "Estrategia de pruebas por capas según Clean Architecture.",
+      "02_test_driven_development.md": "Ciclo Red-Green-Refactor como motor de diseño determinista.",
+      "03_behavior_driven_development.md": "Especificación ejecutable de requisitos mediante sintaxis Given-When-Then.",
+      "04_testing_pyramid.md": "Distribución óptima: 70% unitarios, 20% integración, 10% end-to-end.",
+      "05_continuous_integration.md": "Validación automatizada por commit con feedback en menos de 5 minutos.",
+      "06_continuous_delivery.md": "Automatización de empaquetado y preparación determinista de releases.",
+      "07_continuous_deployment.md": "Despliegue automatizado a producción con smoke tests y rollback automático.",
+      "08_test_doubles.md": "Taxonomía de dobles de prueba: Dummy, Stub, Spy, Mock y Fake.",
+      "09_mutation_testing.md": "Evaluación de la calidad real de la suite mediante inyección de mutantes.",
+      "10_property_based_testing.md": "Generación aleatoria de casos límite mediante análisis de invariantes.",
+      "11_layered_validation.md": "Esquema de validación en 3 capas: Sintaxis, Tipos y Dominio de negocio.",
+      "12_continuous_refactoring.md": "Refactorización Continua: preservación de invariantes externos y reducción de deuda técnica.",
+      "13_acceptance_criteria_and_definition_of_done.md": "Criterios de aceptación objetivos y Definition of Done (DoD) ejecutable para tareas de agentes."
+    },
+    "04_Analisis_Estatico_Observabilidad_y_Operaciones": {
+      "01_linting_and_formatting.md": "Formateo determinista y análisis estático mediante herramientas modernas (Ruff, Black).",
+      "02_static_type_checking.md": "Verificación estricta de tipos estáticos en Python (Mypy en modo strict).",
+      "03_security_scanning.md": "Detección de vulnerabilidades, dependencias vulnerables y secretos en código.",
+      "04_structured_logging.md": "Emisión de registros estructurados en JSON con correlación de tareas.",
+      "05_distributed_tracing.md": "Trazabilidad distribuida con OpenTelemetry para rastrear llamadas a LLMs.",
+      "06_health_checks.md": "Endpoints de salud (liveness y readiness) para orquestadores y supervisores.",
+      "07_graceful_shutdown.md": "Manejo de señales del sistema operativo para cierre seguro de agentes en ejecución.",
+      "08_containerization.md": "Empaquetado reproducible en contenedores OCI con builds multicapa sin root.",
+      "09_infrastructure_as_code.md": "Definición declarativa y versionada de infraestructura.",
+      "10_twelve_factor_app.md": "Principios Twelve-Factor adaptados a servicios y agentes autónomos modernos.",
+      "11_metrics_and_telemetry.md": "Métricas cuantitativas, 4 Golden Signals y telemetría de rendimiento y consumo de tokens.",
+      "12_debuggable_by_design.md": "Debuggable by Design: arquitectura introspectiva, funciones puras y transparencia operativa."
+    },
+    "05_Seguridad_Versionado_y_Reversibilidad": {
+      "01_least_privilege.md": "Principio de mínimo privilegio aplicado a herramientas, tokens y credenciales.",
+      "02_zero_trust.md": "Modelo de Confianza Cero: autenticación y autorización continua en cada capa.",
+      "03_secret_management.md": "Gestión segura de secretos: variables de entorno, vaults y prevención de fugas.",
+      "04_owasp_top_10.md": "Mitigación de los 10 riesgos críticos de seguridad web y API.",
+      "05_semantic_versioning.md": "Especificación SemVer 2.0.0 (MAJOR.MINOR.PATCH) y compatibilidad.",
+      "06_conventional_commits.md": "Estándar de commits semánticos legibles por herramientas y agentes.",
+      "07_trunk_based_development.md": "Flujo de trabajo en rama principal con ramas de vida corta y feature flags.",
+      "08_feature_flags.md": "Desacoplamiento de despliegue y lanzamiento mediante banderas condicionales.",
+      "09_database_migrations.md": "Versionado de esquemas mediante migraciones bidireccionales y reversibles.",
+      "10_disaster_recovery.md": "Estrategias de respaldo, recuperación de desastres y planes de contingencia.",
+      "11_checkpointing_and_incremental_migration.md": "Checkpointing, commits de seguridad y migración incremental para tareas agénticas."
+    },
+    "06_Documentacion_y_Gestion_de_Conocimiento": {
+      "01_documentation_as_code.md": "Tratamiento de la documentación con el mismo rigor que el código fuente.",
+      "02_architecture_decision_records.md": "Registro formal e inmutable de decisiones arquitectónicas en docs/adr/.",
+      "03_living_documentation.md": "Documentación viva sincronizada automáticamente con el código en CI.",
+      "04_knowledge_base.md": "Estructuración de base de conocimiento indexable para consumo de LLMs.",
+      "05_context_preservation.md": "Estrategias para preservar la memoria contextual y decisiones a largo plazo.",
+      "06_single_source_of_truth.md": "Fuente única de verdad: eliminación de duplicación de especificaciones.",
+      "07_facts_rules_and_procedures_separation.md": "Separación estricta de Hechos, Reglas y Procedimientos en la documentación técnica."
+    },
+    "07_Ingenieria_Agentica_y_Control_de_Contexto": {
+      "01_context_window_optimization.md": "Optimización del presupuesto de tokens y prevención del fenómeno Lost-in-the-Middle.",
+      "02_progressive_context_loading.md": "Carga progresiva de contexto: Índice -> Metadatos -> Documento bajo demanda.",
+      "03_noise_reduction_in_docs.md": "Reducción de ruido en documentación técnica para maximizar la densidad de información.",
+      "04_deterministic_formatting.md": "Formateo determinista de instrucciones y salidas para reducir entropía en el LLM.",
+      "05_agent_instruction_design.md": "Diseño de instrucciones operativas con directivas imperativas e inequívocas.",
+      "06_tool_usage_protocols.md": "Protocolos de invocación segura y validación de argumentos para herramientas del agente.",
+      "07_multi_turn_consistency.md": "Estrategias para mantener la coherencia y evitar degradación en sesiones largas.",
+      "08_subagent_specialization.md": "Especialización de subagentes por dominio con alcance y herramientas restringidas.",
+      "09_documentation_as_interface.md": "Documentation as Interface: la documentación como plano de control activo y ejecutable."
+    },
+    "08_Alcance_Guardrails_y_Validacion_para_IA": {
+      "01_blast_radius_containment.md": "Contención del radio de impacto: aislamiento de cambios mediante sandboxing.",
+      "02_static_guardrails.md": "Guardrails estáticos en CI: bloqueo de commits que violen políticas de seguridad.",
+      "03_runtime_guardrails.md": "Guardrails en tiempo de ejecución: timeouts, límites de memoria y cuotas de tokens.",
+      "04_idempotent_operations.md": "Operaciones idempotentes: ejecución segura de reintentos sin efectos secundarios.",
+      "05_atomic_commits_by_ai.md": "Commits atómicos por tarea: un único cambio lógico por commit.",
+      "06_rollback_automation.md": "Automatización de reversiones de estado ante fallos en pipelines o tareas de IA.",
+      "07_human_in_the_loop.md": "Puntos de control con intervención humana para acciones destructivas o críticas.",
+      "08_schema_enforcement.md": "Validación estricta de esquemas de entrada y salida mediante Pydantic y JSON Schema.",
+      "09_forbidden_patterns.md": "Catálogo de patrones prohibidos: bypass de tipos, imports circulares y secretos expuestos.",
+      "10_ai_code_review_rules.md": "Reglas y directrices para la revisión automática de código generado por IA.",
+      "11_sandboxed_execution.md": "Aislamiento de entornos de ejecución mediante contenedores y namespaces de SO.",
+      "12_destructive_action_protection.md": "Protección de operaciones destructivas mediante confirmación explícita de dos pasos.",
+      "13_credential_leak_prevention.md": "Prevención proactiva de fuga de credenciales mediante git-secrets y pre-commit hooks.",
+      "14_resource_limits.md": "Límites estrictos de recursos computacionales (CPU, RAM, disco) por proceso de agente.",
+      "15_semantic_output_validation.md": "Validación semántica de salidas de agentes frente a especificaciones esperadas.",
+      "16_task_state_machine.md": "Máquina de estados finitos para el ciclo de vida de tareas del agente.",
+      "17_no_unrelated_changes_and_change_budget.md": "No Unrelated Changes y presupuesto de modificación (Change Budget) para evitar scope creep.",
+      "18_no_silent_fallbacks.md": "No Silent Fallbacks: prohibición de capturas genéricas silenciosas y forzado de fallos explícitos.",
+      "19_task_artifacts_and_state_retention.md": "Task Artifacts y retención de memoria operativa en sesiones agénticas multi-turno.",
+      "20_agent_evaluation_and_benchmarking.md": "Evaluación sistemática y benchmarking cuantitativo de agentes de IA en el repositorio."
+    },
+    "09_Entorno_Cognitivo_y_Capas_Operativas_IA": {
+      "01_las_10_capas.md": "Visión panorámica de las 10 capas del Entorno Cognitivo Operativo para IA.",
+      "02_system_directives.md": "Capa 1: Directivas del Sistema - Normas globales y límites éticos del agente.",
+      "03_operational_contract.md": "Capa 2: Contrato Operativo - AGENTS.md como acuerdo vinculante.",
+      "04_agent_skills.md": "Capa 3: Habilidades Especializadas - Definición e invocación de skills y workflows.",
+      "05_subagents_and_delegation.md": "Capa 4: Subagentes y Delegación - Orquestación y despacho de tareas especializadas.",
+      "06_messaging_and_reactive_wakeup.md": "Capa 5: Mensajería y Despertar Reactivo - Comunicación asíncrona sin polling.",
+      "07_conversation_transcripts.md": "Capa 6: Transcripciones de Conversación - Historial auditable en JSONL.",
+      "08_artifacts_and_scratchpads.md": "Capa 7: Artefactos y Scratchpads - Documentación rica y espacio de trabajo efímero.",
+      "09_slash_commands.md": "Capa 8: Comandos Rápidos (Slash Commands) - Automatización de flujos de trabajo.",
+      "10_mcp_and_sidecars.md": "Capa 9: MCP y Sidecars - Protocolo de Contexto de Modelos y servicios auxiliares.",
+      "11_ide_and_cli_symbiosis.md": "Capa 10: Simbiosis IDE + CLI - Integración fluida entre entorno visual y terminal.",
+      "12_knowledge_loops.md": "Capa 11: Bucles de Conocimiento - Retroalimentación continua y aprendizaje del sistema.",
+      "13_concrete_examples_and_reference_implementations.md": "Ejemplos concretos e implementaciones de referencia (few-shot in-repo) testeados en CI.",
+      "14_reproducible_bug_reports_and_minimal_reproduction.md": "Reportes de bugs reproducibles y Casos Mínimos de Reproducción (MRE) para agentes."
+    }
+  }
+}

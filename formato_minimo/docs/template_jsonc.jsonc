@@ -1,0 +1,57 @@
+/**
+ * =============================================================================
+ * PLANTILLA ESTÁNDAR DE METADATOS PARA ARCHIVOS JSONC (AGENT-FIRST)
+ * =============================================================================
+ * Archivo: template_jsonc.jsonc
+ * Propósito: Plantilla canónica y esquema de metadatos estandarizados para
+ *            archivos JSON con comentarios (.jsonc) en repositorios agénticos.
+ * Estándar: JSONC (JSON con Comentarios - RFC 8259)
+ * Versión: 1.0.0
+ * Última Actualización: 2026-08-27T14:00:00Z
+ * =============================================================================
+ */
+{
+  "$schema": "https://json.schemastore.org/directory-map-v1.json",
+
+  /* -------------------------------------------------------------------------
+   * METADATOS GLOBALES OBLIGATORIOS (CANONICAL AGENTIC METADATA)
+   * ------------------------------------------------------------------------- */
+  "id": "tmpl_1nrdtvjc7dab8v5qwbq4c18hfz",
+  "name": "template_jsonc",
+  "title": "Plantilla Estándar de Metadatos para Archivos JSONC",
+  "file_path": "template_jsonc.jsonc",
+  "version": "1.0.0",
+  "category": "metadata",
+  "domain": "repository_structure",
+  "tags": [
+    "jsonc",
+    "metadata",
+    "schema",
+    "template",
+    "agentic",
+    "standards"
+  ],
+  "description": "Plantilla canónica y estructura de metadatos estandarizada para archivos JSONC en repositorios agénticos.",
+  "owner": "AI Engineering & Architecture Team",
+  "status": "active",
+  "created_at": "2026-08-27T14:00:00Z",
+  "updated_at": "2026-08-27T14:00:00Z",
+  "schema_version": "1.0.0",
+
+  /* -------------------------------------------------------------------------
+   * DIRECTRICES OPERATIVAS PARA AGENTES DE IA (AGENT GUIDELINES)
+   * ------------------------------------------------------------------------- */
+  "agent_guidelines": {
+    "traversal_strategy": "Progressive Disclosure (Index -> Frontmatter -> Targeted File Body)",
+    "context_budget_limit": "32 KiB combined documentation per operational turn",
+    "rule_precedence": "System Directives > AGENTS.md > Task Context > User Request > Heuristics"
+  },
+
+  /* -------------------------------------------------------------------------
+   * CUERPO / PAYLOAD DE DATOS (ESTRUCTURA DEL CONTENIDO ESPECÍFICO)
+   * ------------------------------------------------------------------------- */
+  "data_payload": {
+    // Definir aquí los objetos, mapas de directorios, configuraciones o reglas del archivo JSONC
+    "example_key": "example_value"
+  }
+}
