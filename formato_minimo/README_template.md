@@ -3,14 +3,14 @@ id: tmpl_01m13915xwemz8qkc7d08950b8
 name: readme_template
 title: "Plantilla Estándar y Patrón Maestro de README.md"
 file_path: formato_minimo/README.md
-version: 1.0.0
+version: 2.0.0
 category: templates
 tags: [readme, template, master-pattern, documentation, onboarding, progressive-disclosure, agent-first]
 description: "Plantilla patrón canónica de README.md para repositorios de propósito general con descripción de secciones, límites de contexto y buenas prácticas agénticas integradas."
 owner: AI Engineering & Architecture Team
 status: active
 created_at: 2026-08-27T22:10:00Z
-updated_at: 2026-08-27T22:10:00Z
+updated_at: 2026-08-29T21:00:00Z
 dependencies: [00_global_standards, 01_readme_specification]
 related_specs: [02_architecture_specification, 03_agents_specification]
 schema_version: 1.0.0

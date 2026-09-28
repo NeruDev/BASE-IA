@@ -1,0 +1,40 @@
+/**
+ * =============================================================================
+ * PERFIL: PYTHON SERVICE (Backend, APIs & Microservicios)
+ * =============================================================================
+ * Ideal para: Servicios FastAPI/Flask, microservicios backend y sistemas distribuidos.
+ */
+{
+  "$schema": "../../schemas/manifest.schema.json",
+  "id": "profile_python_service",
+  "name": "python_service",
+  "title": "Perfil de Servicios y APIs Backend en Python",
+  "version": "2.0.0",
+  "schema_version": "1.0.0",
+  "description": "Configuración completa para microservicios y APIs robustas con arquitectura hexagonal, testing y CI/CD.",
+  "owner": "AI Engineering & Architecture Team",
+  "created_at": "2026-08-29T21:00:00Z",
+  "updated_at": "2026-08-29T21:00:00Z",
+  "profile_config": {
+    "id": "python_service",
+    "name": "Python Service Profile",
+    "description": "Servicios Backend, APIs y Microservicios robustos en Python.",
+    "primary_language": "python",
+    "enabled_modules": [
+      "module_architecture_hexagonal",
+      "module_glossary",
+      "module_memory_system",
+      "module_sandbox",
+      "module_adr",
+      "module_testing",
+      "module_ci",
+      "module_security"
+    ],
+    "auto_modules": [],
+    "custom_overrides": {
+      "python_version": "3.11+",
+      "core_isolation": "MUST_NOT",
+      "diagrams_formal": "SHOULD"
+    }
+  }
+}

@@ -3,14 +3,14 @@ id: tmpl_01m13ftbm2fjmahkrr6zh3kqr8
 name: sandbox_guide
 title: "Guía Estándar de Sandboxing y Espacios de Experimentación para IA Agéntica"
 file_path: formato_minimo/sandbox_guide.md
-version: 1.0.0
+version: 2.0.0
 category: guides
 tags: [sandbox, scratchpad, agentic-engineering, throwaway-scripts, gitignore, agents-md, promotion-protocol, mres, workspace-hygiene]
 description: "Guía de referencia estándar para la configuración, gobernanza en AGENTS.md, reglas de .gitignore, ciclo de vida de promoción y escalabilidad del directorio sandbox en repositorios asistidos por IA."
 owner: AI Engineering & Architecture Team
 status: active
 created_at: 2026-08-28T00:00:00Z
-updated_at: 2026-08-28T00:00:00Z
+updated_at: 2026-08-29T21:00:00Z
 dependencies: [00_global_standards, 03_agents_specification]
 related_specs: [01_readme_specification, 02_architecture_specification, 03_scratchpad_specification]
 schema_version: 1.0.0
@@ -20,7 +20,7 @@ schema_version: 1.0.0
 
 Esta guía define las **prácticas estándar de la industria, la arquitectura y las reglas de gobernanza** para el directorio de pruebas y experimentación temporal (**`sandbox/`**) en repositorios con desarrollo asistido por **Agentes Autónomos de Inteligencia Artificial**.
 
-El objetivo central del sandbox es proporcionar un laboratorio seguro con **radio de impacto cero (*Zero Blast Radius*)**, erradicar la contaminación del árbol de trabajo (*Repo Littering*) y establecer un flujo determinista para promover prototipos exitosos al código de producción en `src/`.
+El objetivo central del sandbox es proporcionar un laboratorio seguro con **Blast Radius Controlado**, erradicar la contaminación del árbol de trabajo (*Repo Littering*) y establecer un flujo determinista para promover prototipos exitosos al código de producción en `src/`.
 
 ---
 
@@ -35,7 +35,7 @@ flowchart TD
 
     H3 --> Decision{"¿El experimento es exitoso y viable?"}
 
-    Decision -->|"❌ Falló"| Discard["Descarte Seguro en O(1)<br/>(Eliminar script sin tocar src/)"]
+    Decision -->|"❌ Falló"| Discard["Descarte Seguro e Inmediato<br/>(Eliminar script sin tocar src/)"]
     Decision -->|"✅ Exitoso"| Fase_Promocion
 
     subgraph Fase_Promocion ["2. Fase de Promoción a Producción (src/ y tests/)"]
@@ -48,7 +48,9 @@ flowchart TD
 ```
 
 > [!IMPORTANT]
-> **Regla Inviolable de Diagramación Formal:** Queda terminantemente prohibido construir diagramas de flujo, procesos, mapas o secuencias mediante flechas de texto plano (`->`, `-->`, `==>`, `|`, `/`, `\`), caracteres ASCII o símbolos informales sujetos a interpretación ambigua. Todo flujo o relación visual DEBE modelarse obligatoriamente en formato **Mermaid** (` ```mermaid `) con nodos tipados y direcciones formales.
+> **Estándar de Diagramación Formal y Texto Limpio:**
+> - `SHOULD`: Modelar ciclos de promoción y flujos de contención en bloques **Mermaid** (` ```mermaid `) con nodos tipados y direcciones formales.
+> - `MAY`: Utilizar texto estructurado para listas de verificación o comandos de terminal.
 
 ---
 
@@ -69,7 +71,7 @@ Para evitar que scripts temporales, volcados JSON o trazas de depuración se añ
 
 ```gitignore
 # =============================================================================
-# ZONA DE SANDBOX Y SCRATCH TEMPORAL DE AGENTES DE IA (Zero Blast Radius)
+# ZONA DE SANDBOX Y SCRATCH TEMPORAL DE AGENTES DE IA (Blast Radius Controlado)
 # =============================================================================
 # Ignorar todo el contenido temporal dentro de sandbox/
 sandbox/*

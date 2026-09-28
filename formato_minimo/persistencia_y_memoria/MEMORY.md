@@ -3,14 +3,14 @@ id: tmpl_01m13bwt9w5hay24srd1zg4cw3
 name: memory_template
 title: "Plantilla Estándar y Patrón Maestro de MEMORY.md"
 file_path: formato_minimo/persistencia_y_memoria/MEMORY.md
-version: 1.0.0
+version: 2.0.0
 category: templates
 tags: [memory, template, master-pattern, semantic-memory, repo-learning, heuristics, agentic-persistence, knowledge-loops, gotchas]
 description: "Plantilla patrón canónica de MEMORY.md para la persistencia de memoria semántica, lecciones aprendidas, trampas de dependencias y heurísticas descubiertas por agentes autónomos de IA."
 owner: AI Engineering & Architecture Team
 status: active
 created_at: 2026-08-27T23:00:00Z
-updated_at: 2026-08-27T23:00:00Z
+updated_at: 2026-08-29T21:00:00Z
 dependencies: [00_global_standards, 03_agents_specification, 01_memory_specification]
 related_specs: [02_progress_specification, 03_scratchpad_specification, 04_playbook_specification]
 schema_version: 1.0.0
@@ -39,17 +39,19 @@ Este documento constituye la **memoria a largo plazo (memoria semántica y epist
 
 ```mermaid
 flowchart TD
-    Boot["Arranque de Sesión del Agente (Session Boot)"] --> Read["1. Leer MEMORY.md en O(1) de tokens"]
+    Boot["Arranque de Sesión del Agente (Session Boot)"] --> Read["1. Leer MEMORY.md vía Progressive Disclosure"]
     Read --> Apply["2. Aplicar Heurísticas & Evitar Gotchas Conocidos"]
     Apply --> Work["3. Ejecución de la Tarea en Curso"]
     Work --> Discover{"¿Se descubrió una trampa o lección técnica nueva?"}
     Discover -->|"❌ No"| Done["Concluir tarea normalmente"]
-    Discover -->|"✅ Sí"| Append["4. Registrar lección en MEMORY.md (YYYY-MM-DD HH:MM)"]
+    Discover -->|"✅ Sí"| Append["4. Registrar lección estructurada con TTL y Confianza"]
     Append --> Commit["5. Commit atómico de persistencia en Git"]
 ```
 
 > [!IMPORTANT]
-> **Regla Inviolable de Diagramación Formal:** Queda terminantemente prohibido construir diagramas de flujo, procesos, mapas o secuencias mediante flechas de texto plano (`->`, `-->`, `==>`, `|`, `/`, `\`), caracteres ASCII o símbolos informales sujetos a interpretación ambigua. Todo flujo o relación visual DEBE modelarse obligatoriamente en formato **Mermaid** (` ```mermaid `) con nodos tipados y direcciones formales.
+> **Estándar de Diagramación Formal y Texto Limpio:**
+> - `SHOULD`: Modelar flujos y ciclos cognitivos en bloques **Mermaid** (` ```mermaid `) con nodos tipados y direcciones formales.
+> - `MAY`: Utilizar listas estructuradas YAML o texto conciso para la declaración de entradas individuales de memoria.
 
 ---
 
@@ -100,7 +102,7 @@ flowchart TD
 <!-- ======================================================================= -->
 <!-- SECCIÓN 6: ÍNDICE DE ENRUTAMIENTO DE DOCUMENTACIÓN ESPECIALIZADA        -->
 <!-- BP RECOMENDADA: bp_0702_progressive_disclosure                          -->
-<!-- Punteros directos para resolver dudas en O(1) de tokens.                -->
+<!-- Punteros directos mediante Progressive Disclosure e indexación.         -->
 <!-- ======================================================================= -->
 
 ## 5. Índice de Enrutamiento de Documentación Especializada

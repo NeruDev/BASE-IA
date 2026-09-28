@@ -1,0 +1,208 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/NeruDev/BASE-IA/main/formato_minimo/schemas/manifest.schema.json",
+  "title": "Repository Composition Manifest Schema",
+  "description": "Schema for repo_manifest.jsonc and profile.jsonc files in the BASE-IA modular format framework.",
+  "type": "object",
+  "required": ["id", "version", "schema_version"],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "URI of the JSON Schema"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]{3,64}$",
+      "description": "Unique identifier for this manifest or profile"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name of the manifest or profile"
+    },
+    "title": {
+      "type": "string",
+      "description": "Title of the manifest or profile"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "SemVer version string"
+    },
+    "schema_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Schema version string"
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed summary of the manifest or profile"
+    },
+    "owner": {
+      "type": "string",
+      "description": "Owner or maintaining team"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 creation timestamp"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 update timestamp"
+    },
+    "core_files": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of core mandatory files required for every repository"
+    },
+    "modules": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/module_definition"
+      },
+      "description": "Catalog of all modular components available in the framework"
+    },
+    "profiles_definition": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/profile_composition"
+      },
+      "description": "Predefined profiles with their enabled modules and configurations"
+    },
+    "profile_config": {
+      "$ref": "#/$defs/profile_composition",
+      "description": "Configuration when file is a standalone profile.jsonc"
+    }
+  },
+  "$defs": {
+    "module_definition": {
+      "type": "object",
+      "required": ["id", "name"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique module ID"
+        },
+        "name": {
+          "type": "string",
+          "description": "Descriptive name of the module"
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed explanation of what the module provides"
+        },
+        "source": {
+          "type": "string",
+          "description": "Relative path to source file template"
+        },
+        "target": {
+          "type": "string",
+          "description": "Target path relative to destination root"
+        },
+        "source_dir": {
+          "type": "string",
+          "description": "Relative path to source directory"
+        },
+        "target_dir": {
+          "type": "string",
+          "description": "Target directory relative to destination root"
+        },
+        "files_map": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Explicit map of source relative paths to target relative paths"
+        },
+        "profiles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of profile IDs that include this module by default"
+        },
+        "requires": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Module IDs that must be enabled if this module is enabled"
+        },
+        "conflicts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Module IDs that cannot be enabled together with this module"
+        },
+        "validators": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Validators associated with this module"
+        },
+        "severity_rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "enum": ["MUST", "MUST_NOT", "SHOULD", "SHOULD_NOT", "MAY", "PROJECT", "AUTO"]
+          },
+          "description": "Severity rules governing this module"
+        },
+        "isolation_level": {
+          "type": "string",
+          "enum": ["organizational", "organizational_with_escalation", "vcs_worktree", "container_sandbox"],
+          "description": "Blast radius isolation level"
+        },
+        "ttl_policy_enabled": {
+          "type": "boolean",
+          "description": "Whether TTL and pruning policy applies to this module"
+        }
+      }
+    },
+    "profile_composition": {
+      "type": "object",
+      "required": ["description", "enabled_modules"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Profile identifier"
+        },
+        "name": {
+          "type": "string",
+          "description": "Human-readable profile name"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the target workload"
+        },
+        "primary_language": {
+          "type": "string",
+          "description": "Main programming or specification language"
+        },
+        "enabled_modules": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of module IDs enabled for this profile"
+        },
+        "auto_modules": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Modules that the AI agent may activate adaptively based on context"
+        },
+        "custom_overrides": {
+          "type": "object",
+          "description": "Key-value configuration overrides for this profile"
+        }
+      }
+    }
+  }
+}

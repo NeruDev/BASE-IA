@@ -1,0 +1,24 @@
+# =============================================================================
+# NORMALIZACIÓN UNIVERSAL DE FORMATO Y EDITOR (editorconfig_core)
+# =============================================================================
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+
+# Lenguajes y formatos basados en indentación de 2 espacios
+[*.{json,jsonc,yaml,yml,md,markdown,html,css,scss,xml,svg,js,jsx,ts,tsx,vue,svelte}]
+indent_size = 2
+
+# Makefile requiere tabulaciones estrictas
+[Makefile]
+indent_style = tab
+
+# Archivos de configuración y propiedades
+[*.{ini,cfg,conf,properties,toml}]
+indent_size = 2

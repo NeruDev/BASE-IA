@@ -1,0 +1,79 @@
+# =============================================================================
+# EXCLUSIONES UNIVERSALES DE GIT (gitignore_core)
+# =============================================================================
+
+# Secretos, Credenciales y Variables de Entorno (MUST_NOT commitear)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.cert
+*.p12
+*.pfx
+secrets/
+credentials.json
+
+# Archivos Temporales y Cachés de Sistema Operativo
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+[Dd]esktop.ini
+
+# Entornos Virtuales y Gestores de Paquetes
+.venv/
+env/
+venv/
+ENV/
+node_modules/
+vendor/
+.pnp/
+.pnp.js
+
+# Caches y Bytecode de Lenguajes
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.dylib
+*.dll
+*.class
+target/
+dist/
+build/
+*.egg-info/
+.eggs/
+
+# IDEs, Editores y Configuración Local de Usuario
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# Logs, Reportes y Cobertura de Pruebas
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Laboratorio y Experimentación Aislada (Sandbox)
+sandbox/*
+!sandbox/README.md
+!sandbox/.gitignore

@@ -1,0 +1,24 @@
+# =============================================================================
+# VARIABLES DE ENTORNO DE EJEMPLO (.env.example)
+# Copiar este archivo a .env y configurar con credenciales reales seguras.
+# MUST_NOT commitear el archivo .env real con valores productivos.
+# =============================================================================
+
+# Configuración del Entorno de Aplicación
+APP_ENV=development
+APP_DEBUG=true
+APP_PORT=8000
+APP_SECRET_KEY=change_me_to_a_random_secure_secret_string
+
+# Conexión a Base de Datos
+DATABASE_URL=sqlite:///./app_local.db
+# DATABASE_URL=postgresql://user:password@localhost:5432/production_db
+
+# Proveedores de Modelos de Lenguaje (LLM) y Servicios Externos
+OPENAI_API_KEY=sk-placeholder-do-not-commit-real-key
+ANTHROPIC_API_KEY=sk-ant-placeholder
+GOOGLE_API_KEY=AIzaSyPlaceholder
+
+# Niveles de Log y Telemetría
+LOG_LEVEL=INFO
+ENABLE_TELEMETRY=false

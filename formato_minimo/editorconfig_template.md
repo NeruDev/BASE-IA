@@ -3,14 +3,14 @@ id: tmpl_01m139myzmez6ads4q5ye17sfx
 name: editorconfig_template
 title: "Plantilla Estándar y Patrón Maestro de .editorconfig"
 file_path: formato_minimo/editorconfig_template.md
-version: 1.0.0
+version: 2.0.0
 category: templates
 tags: [editorconfig, template, master-pattern, formatting, encoding, line-endings, whitespace, agent-hygiene]
 description: "Plantilla patrón canónica de .editorconfig para repositorios de propósito general con estandarización de codificación UTF-8, saltos LF, indentación y buenas prácticas integradas."
 owner: AI Engineering & Architecture Team
 status: active
 created_at: 2026-08-27T22:20:00Z
-updated_at: 2026-08-27T22:20:00Z
+updated_at: 2026-08-29T21:00:00Z
 dependencies: [00_global_standards, 07_editorconfig_specification]
 related_specs: [01_readme_specification, 03_agents_specification, 05_gitignore_specification]
 schema_version: 1.0.0

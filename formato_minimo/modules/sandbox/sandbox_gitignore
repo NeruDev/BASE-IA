@@ -1,0 +1,5 @@
+# Ignorar todo el contenido efímero dentro de sandbox
+*
+# Preservar la infraestructura mínima
+!.gitignore
+!README.md

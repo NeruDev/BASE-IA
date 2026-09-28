@@ -1,0 +1,40 @@
+/**
+ * =============================================================================
+ * PERFIL: AGENTIC SYSTEM (Multi-Agentes, Servidores MCP & Entornos Autónomos)
+ * =============================================================================
+ * Ideal para: Sistemas multi-agente, orquestación agéntica, plugins MCP y frameworks autónomos.
+ */
+{
+  "$schema": "../../schemas/manifest.schema.json",
+  "id": "profile_agentic_system",
+  "name": "agentic_system",
+  "title": "Perfil para Sistemas Agénticos y Ecosistemas MCP",
+  "version": "2.0.0",
+  "schema_version": "1.0.0",
+  "description": "Configuración de máxima capacidad con arquitectura hexagonal, memoria multicapa completa, sandbox estricto y quality gates.",
+  "owner": "AI Engineering & Architecture Team",
+  "created_at": "2026-08-29T21:00:00Z",
+  "updated_at": "2026-08-29T21:00:00Z",
+  "profile_config": {
+    "id": "agentic_system",
+    "name": "Agentic System Profile",
+    "description": "Multi-agentes, entornos MCP, workflows autónomos y arquitecturas cognitivas.",
+    "primary_language": "python_typescript",
+    "enabled_modules": [
+      "module_architecture_hexagonal",
+      "module_glossary",
+      "module_memory_system",
+      "module_sandbox",
+      "module_adr",
+      "module_testing",
+      "module_ci",
+      "module_security"
+    ],
+    "auto_modules": [],
+    "custom_overrides": {
+      "memory_layers_active": ["semantic", "episodic", "working", "procedural"],
+      "tool_permissions_strict": "MUST",
+      "blast_radius_containment": "MUST"
+    }
+  }
+}

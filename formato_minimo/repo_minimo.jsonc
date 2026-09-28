@@ -1,18 +1,17 @@
 /**
  * =============================================================================
- * MAPA INTEGRAL DEL ECOSISTEMA FORMATO_MINIMO Y GUÍA DE BOOTSTRAP AGÉNTICO
+ * MAPA INTEGRAL DEL ECOSISTEMA FORMATO_MINIMO (BASE-IA v2.0.0)
  * =============================================================================
  * Archivo: formato_minimo/repo_minimo.jsonc
  * Propósito: Mapa estructurado de navegación, catálogo de artefactos y plano de
  *            control para la inicialización y gobernanza de repositorios desde cero
  *            en desarrollo colaborativo entre Desarrolladores Humanos e IA Agéntica.
- * Estándar: JSONC (JSON con Comentarios - RFC 8259)
- * Versión: 1.0.0
- * Última Actualización: 2026-08-28T00:25:00Z
+ * Estándar: JSONC con validación JSON Schema (Draft 2020-12)
+ * Versión: 2.0.0
  * =============================================================================
  */
 {
-  "$schema": "https://json.schemastore.org/directory-map-v1.json",
+  "$schema": "./schemas/manifest.schema.json",
 
   /* -------------------------------------------------------------------------
    * METADATOS GLOBALES DEL ECOSISTEMA FORMATO_MINIMO
@@ -20,156 +19,30 @@
   "id": "tmpl_01m13gmxq3fzgb3mjb7nd1ags5",
   "name": "repo_minimo",
   "title": "Mapa Integral del Ecosistema formato_minimo y Guía de Bootstrap Agéntico",
-  "file_path": "formato_minimo/repo_minimo.jsonc",
-  "version": "1.0.0",
-  "category": "metadata",
-  "domain": "repository_bootstrap_and_governance",
-  "tags": [
-    "jsonc",
-    "bootstrap",
-    "directory-map",
-    "starter-kit",
-    "minimal-format",
-    "agentic-engineering",
-    "standards",
-    "templates",
-    "checklists"
-  ],
-  "description": "Mapa semántico de navegación y catálogo exhaustivo de plantillas, guías, contratos operativos y artefactos de memoria estructurada que componen el estándar formato_minimo para iniciar repositorios agénticos desde cero.",
-  "owner": "AI Engineering & Architecture Team",
-  "status": "active",
-  "created_at": "2026-08-28T00:25:00Z",
-  "updated_at": "2026-08-28T00:25:00Z",
+  "version": "2.0.0",
   "schema_version": "1.0.0",
+  "description": "Mapa semántico de navegación y catálogo exhaustivo de módulos, perfiles, esquemas y validadores que componen el estándar modular formato_minimo v2.0.0.",
+  "owner": "AI Engineering & Architecture Team",
+  "created_at": "2026-08-28T00:25:00Z",
+  "updated_at": "2026-08-29T21:00:00Z",
 
   /* -------------------------------------------------------------------------
-   * PROPÓSITO GENERAL Y FILOSOFÍA DE FORMATO_MINIMO
+   * NÚCLEO OBLIGATORIO Y MANIFIESTO MAESTRO
    * ------------------------------------------------------------------------- */
-  "proposito_general": {
-    "mision": "Proveer una base fundacional, modular, autosuficiente y determinista para inicializar repositorios de software diseñados para pair-programming y autonomía de agentes de IA.",
-    "principios_rectores": [
-      "Exactitud Técnica sobre Velocidad",
-      "Look Before You Leap (Planificar y Prototipar en Sandbox antes de Mutar Producción)",
-      "Zero Blast Radius y Contención de Residuos",
-      "Alta Razón Señal/Ruido y Navegación en O(1) de Tokens",
-      "Separación Estricta de Hechos (GLOSSARY), Reglas (AGENTS) y Procedimientos (PLAYBOOK)"
-    ],
-    "estrategia_de_consumo_de_contexto": "Progressive Disclosure (Index -> Frontmatter -> Targeted File Body)"
-  },
+  "core_files": [
+    "core/AGENTS_core.md",
+    "core/README_core.md",
+    "core/repo_manifest.jsonc",
+    "core/gitignore_core",
+    "core/editorconfig_core"
+  ],
 
   /* -------------------------------------------------------------------------
-   * CATÁLOGO DETALLADO DE ARCHIVOS Y COMPONENTES EN FORMATO_MINIMO
+   * ENLACE A CATÁLOGOS Y PERFILES
    * ------------------------------------------------------------------------- */
-  "estructura_repositorio": {
-
-    /* =======================================================================
-     * 1. RAÍZ: CONTRATOS OPERATIVOS, TOPOLOGÍA Y GUÍAS DE CALIDAD
-     * ======================================================================= */
-    "archivos_raiz": {
-      "AGENTS.md": {
-        "rol": "Constitución Operativa y Contrato Vinculante",
-        "descripcion": "Gobierna el comportamiento del agente de IA: jerarquía de precedencia de instrucciones (Nivel 1 Seguridad > Nivel 2 AGENTS > Nivel 3 Prompt), matriz de permisos de herramientas (Read-Only vs Safe Mutation vs Destructive), estándares de código Python/YAML/JSON, guardrails de seguridad inviolables, directivas de memoria, protocolo de sandboxing y checklist DoD."
-      },
-      "ARCHITECTURE.md": {
-        "rol": "Topología del Sistema y Arquitectura Hexagonal",
-        "descripcion": "Plantilla maestra que describe la arquitectura de puertos y adaptadores, límites modulares, flujo de datos unidireccional en diagramas Mermaid, máquinas de estado finito (FSM), catálogo de eventos de dominio e índice de Decisiones de Arquitectura (ADRs)."
-      },
-      "README.md": {
-        "rol": "Landing Page del Repositorio y Divulgación Progresiva",
-        "descripcion": "Documentación de entrada estructurada para humanos y agentes: resumen ejecutivo, propuesta de valor, badges de calidad, guía de instalación rápida determinista en 3 pasos, ejemplos de uso verificables y mapa de navegación documental."
-      },
-      "GLOSSARY.md": {
-        "rol": "Glosario Técnico, Lenguaje Ubicuo (DDD) y Anclaje Contextual",
-        "descripcion": "Diccionario canónico de términos del dominio, arquitectura, ingeniería agéntica y acrónimos. Previene la deriva semántica del LLM mediante anclaje contextual rígido y búsqueda focalizada en O(1) de tokens."
-      },
-      "principios_universales_guia.md": {
-        "rol": "Compendio de los 13 Principios Universales de Diseño",
-        "descripcion": "Guía práctica portátil con definiciones, casos de uso, límites operativos, directivas agénticas y checklists completas de verificación para DRY, KISS, YAGNI, SOLID, SoC, SSOT, Encapsulamiento, Modularidad, Cohesión/Acoplamiento, Fail Fast, Programación Defensiva, Lo Explícito sobre lo Implícito y Convención sobre Configuración."
-      },
-      "guia_rapida_buenas_practicas.md": {
-        "rol": "Compendio de las 97 Buenas Prácticas Avanzadas (Secciones 2 a 9)",
-        "descripcion": "Catálogo exhaustivo estructurado en 8 áreas temáticas (Arquitectura, Testing/CI/CD, Análisis Estático/Observabilidad, Seguridad/Versionado, Documentación DaC, Ingeniería de Contexto, Guardrails y Entorno Cognitivo de 10 Capas) con sus checklists completas para pruebas y auditoría."
-      },
-      "sandbox_guide.md": {
-        "rol": "Guía de Sandboxing y Espacios de Experimentación Aislados",
-        "descripcion": "Estándar de aislamiento de pruebas temporales (Zero Blast Radius): configuración de sandbox/ en .gitignore, directivas vinculantes en AGENTS.md, protocolo de promoción de código en 5 pasos (Sandbox -> Producción) y tratamiento escalonado según el crecimiento del proyecto."
-      },
-      "editorconfig_template.md": {
-        "rol": "Plantilla Maestra de .editorconfig",
-        "descripcion": "Estandarización de formato a nivel de editor: codificación UTF-8 sin BOM, finales de línea LF universales, indentación de 4 espacios para Python y 2 espacios para YAML/JSON/Markdown, y trim de espacios en blanco al final de línea."
-      },
-      "gitattributes_template.md": {
-        "rol": "Plantilla Maestra de .gitattributes",
-        "descripcion": "Normalización de Git: configuración de eol=lf obligatoria para evitar diffs ruidosos entre Windows/Linux/macOS, drivers de diff semánticos (diff=python, diff=markdown) y flags de archivos binarios/export-ignore."
-      },
-      "gitignore_template.md": {
-        "rol": "Plantilla Maestra de .gitignore en 6 Capas",
-        "descripcion": "Reglas de exclusión estructuradas por capas: Entornos Virtuales, Secretos y Credenciales (.env, .pem), Cachés de compiladores/linters, IDEs (con excepciones para launch.json), Artefactos de agentes (.cursor/, .claude/, .gemini/) y Sandbox temporal."
-      },
-      "license_template.md": {
-        "rol": "Plantilla de Licenciamiento y Encabezados SPDX",
-        "descripcion": "Bloques legales canónicos para MIT License y Apache 2.0, estándar de identificadores SPDX para código fuente (# SPDX-License-Identifier: MIT) y matriz de taxonomía de riesgos de contaminación copyleft (GPL/AGPL)."
-      },
-      "frontmatter_yaml.md": {
-        "rol": "Especificación Canónica de Metadatos Frontmatter YAML",
-        "descripcion": "Definición rigurosa de metadatos delimitados por '---' para archivos Markdown: taxonomía de campos obligatorios/opcionales, validación de tipos, orden canónico por capas y esquema JSON Schema Draft-07."
-      },
-      "id_standards_guide.md": {
-        "rol": "Guía de Taxonomía y Estándares de Identificadores Únicos",
-        "descripcion": "Modelos de IDs ordenables temporalmente (K-Sortable): TypeID (prefijo_base32_uuidv7), UUIDv7 (RFC 9562), ULID, Slugs numéricos y Namespaces jerárquicos para trazabilidad y cero alucinaciones."
-      },
-      "repo_minimo.jsonc": {
-        "rol": "Mapa Integral y Plano de Control del Ecosistema formato_minimo",
-        "descripcion": "Este archivo. Catálogo semántico y mapa estructurado que indexa la totalidad de plantillas y herramientas de formato_minimo."
-      }
-    },
-
-    /* =======================================================================
-     * 2. PERSISTENCIA Y MEMORIA: CAPAS DE MEMORIA ESTRUCTURADA PARA IA
-     * ======================================================================= */
-    "persistencia_y_memoria": {
-      "MEMORY.md": {
-        "rol": "Memoria Semántica a Largo Plazo y Aprendizaje Continuo (Repo Learning)",
-        "descripcion": "Almacena lecciones aprendidas permanentes con timestamps [YYYY-MM-DD HH:MM], trampas de dependencias y librerías externas (gotchas & workarounds), decisiones técnicas sutiles y protocolo de poda (<200 líneas)."
-      },
-      "PROGRESS.md": {
-        "rol": "Memoria Episódica, Libro Contable en Tiempo Real y Checkpointing",
-        "descripcion": "Libro contable de ejecución (Task Ledger): ID de tarea activa, marcas de tiempo con segundos [YYYY-MM-DD HH:MM:SS], desglose de subtareas ([x], [/], [ ]), archivos tocados, bloqueos, próximo paso inmediato (Next Immediate Action) y sincronización pre-push."
-      },
-      "SCRATCHPAD.md": {
-        "rol": "Memoria de Trabajo Transitoria y Formulación de Hipótesis",
-        "descripcion": "Espacio de borrador analítico previo a la mutación de código: comprensión del problema, formulación de hipótesis técnicas (KISS/YAGNI), análisis de trade-offs, experimentos en sandbox y plan quirúrgico TDD (Red-Green-Refactor)."
-      },
-      "PLAYBOOK.md": {
-        "rol": "Memoria Procedimental y Procedimientos Operativos Estandarizados (SOPs)",
-        "descripcion": "Catálogo de recetas deterministas paso a paso para tareas técnicas recurrentes: creación de puertos/servicios hexagonales, diagnóstico y reproducción de bugs en sandbox, procedimientos de release y actualización SemVer."
-      }
-    },
-
-    /* =======================================================================
-     * 3. DOCS: GUÍAS METODOLÓGICAS, AUDITORÍA Y ESTÁNDARES EMERGENTES
-     * ======================================================================= */
-    "docs": {
-      "flujo_revision_y_auditoria.md": {
-        "rol": "Diagrama de Flujo Adaptable para los 13 Principios Universales",
-        "descripcion": "Metodología y árbol de decisión en Mermaid para auditar los principios de diseño fundamentales adaptando el nivel de exigencia según el perfil del proyecto (CLI vs SDK vs Backend vs Sistema Agéntico)."
-      },
-      "flujo_auditoria_buenas_practicas_completo.md": {
-        "rol": "Flujo Maestro de Auditoría Integral en 7 Fases de Calidad",
-        "descripcion": "Protocolo exhaustivo para auditar las 97 buenas prácticas avanzadas en 7 Quality Gates secuenciales: 1. Seguridad, 2. Análisis Estático/Observabilidad, 3. Guardrails, 4. Arquitectura, 5. Documentación/Memoria, 6. Testing DoD y 7. Release Atómico."
-      },
-      "guia_fundacional_bootstrap_y_metadatos.md": {
-        "rol": "Guía Unificada de Bootstrap, Validación, RFC 9457, ADRs, REPO_MAP y MCP",
-        "descripcion": "Compendio fundacional que incluye el procedimiento de inicialización Day 0, script canónico en Python validate_metadata.py para CI, taxonomía de excepciones estructuradas RFC 9457, plantilla de ADRs, mapa semántico REPO_MAP.md y esquema de herramientas MCP."
-      },
-      "practicas_emergentes_mcp_y_agentes.md": {
-        "rol": "Guía de Estándares de Frontera, MCP y Gobernanza Avanzada (2025/2026)",
-        "descripcion": "Interoperabilidad multi-IDE (CLAUDE.md, .cursorrules, .clinerules vinculados a AGENTS.md), configuración nativa de Model Context Protocol (.mcp/mcp_servers.json), Git pre-commit hooks agénticos (.pre-commit-config.yaml) y presupuesto declarativo para ejecuciones autónomas (.agent/budget.json)."
-      },
-      "template_jsonc.jsonc": {
-        "rol": "Plantilla Canónica y Esquema Base para Archivos JSONC",
-        "descripcion": "Estructura estándar para la creación de archivos JSON con comentarios en repositorios agénticos, con cabecera de metadatos, directrices de agente y payload de datos."
-      }
-    }
-  }
+  "manifest_reference": "core/repo_manifest.jsonc",
+  "profiles_directory": "profiles/",
+  "modules_directory": "modules/",
+  "validators_directory": "validators/",
+  "schemas_directory": "schemas/"
 }

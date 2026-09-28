@@ -3,14 +3,14 @@ id: tmpl_01m139v3rde4avyfy8h402evz6
 name: gitattributes_template
 title: "Plantilla Estándar y Patrón Maestro de .gitattributes"
 file_path: formato_minimo/gitattributes_template.md
-version: 1.0.0
+version: 2.0.0
 category: templates
 tags: [gitattributes, template, master-pattern, eol, line-endings, lf, cross-platform, clean-diffs, diff-drivers]
 description: "Plantilla patrón canónica de .gitattributes para repositorios de propósito general con normalización determinista de saltos LF, drivers semánticos de diff y buenas prácticas integradas."
 owner: AI Engineering & Architecture Team
 status: active
 created_at: 2026-08-27T22:25:00Z
-updated_at: 2026-08-27T22:25:00Z
+updated_at: 2026-08-29T21:00:00Z
 dependencies: [00_global_standards, 08_gitattributes_specification]
 related_specs: [01_readme_specification, 03_agents_specification, 05_gitignore_specification, 07_editorconfig_specification]
 schema_version: 1.0.0

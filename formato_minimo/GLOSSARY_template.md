@@ -3,14 +3,14 @@ id: tmpl_01m13b0scff7za5n2h78c8d8pc
 name: glossary_template
 title: "Plantilla Estándar y Patrón Maestro de GLOSSARY.md"
 file_path: formato_minimo/GLOSSARY.md
-version: 1.0.0
+version: 2.0.0
 category: templates
 tags: [glossary, template, master-pattern, ubiquitous-language, domain-driven-design, ontology, terminology, agentic-anchoring]
 description: "Plantilla patrón canónica de GLOSSARY.md para repositorios de propósito general con lenguaje ubicuo (DDD), desambiguación ontológica, conceptos agénticos y buenas prácticas integradas."
 owner: AI Engineering & Architecture Team
 status: active
 created_at: 2026-08-27T22:45:00Z
-updated_at: 2026-08-27T22:45:00Z
+updated_at: 2026-08-29T21:00:00Z
 dependencies: [00_global_standards, 07_glossary_specification]
 related_specs: [01_readme_specification, 02_architecture_specification, 03_agents_specification]
 schema_version: 1.0.0
@@ -48,7 +48,9 @@ flowchart TD
 ```
 
 > [!IMPORTANT]
-> **Regla Inviolable de Diagramación Formal:** Queda terminantemente prohibido construir diagramas de flujo, procesos, mapas o secuencias mediante flechas de texto plano (`->`, `-->`, `==>`, `|`, `/`, `\`), caracteres ASCII o símbolos informales sujetos a interpretación ambigua. Todo flujo o relación visual DEBE modelarse obligatoriamente en formato **Mermaid** (` ```mermaid `) con nodos tipados y direcciones formales.
+> **Estándar de Diagramación Formal y Texto Limpio:**
+> - `SHOULD`: Utilizar bloques **Mermaid** (` ```mermaid `) para visualizar flujos complejos y árboles de decisión semántica.
+> - `MAY`: Utilizar tablas o texto estructurado cuando resulte más directo y conciso.
 
 ---
 
@@ -132,7 +134,8 @@ Esta sección define las entidades nucleares, reglas de dominio y conceptos espe
 <!-- ======================================================================= -->
 <!-- SECCIÓN 7: GUÍA DE MANTENIMIENTO Y BÚSQUEDA RÁPIDA PARA AGENTES         -->
 <!-- BP RECOMENDADA: bp_0703_high_signal_to_noise_ratio                      -->
-<!-- Comandos grep/ripgrep para consultar términos en O(1) de tokens.        -->
+<!-- Comandos grep/ripgrep para consultar términos mediante Progressive      -->
+<!-- Disclosure e indexación estructurada.                                   -->
 <!-- ======================================================================= -->
 
 ## 6. Comandos de Consulta Rápida para Agentes

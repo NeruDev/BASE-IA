@@ -1,0 +1,40 @@
+/**
+ * =============================================================================
+ * PERFIL: LIBRARY SDK (Bibliotecas y Paquetes Reutilizables)
+ * =============================================================================
+ * Ideal para: Librerías Python/TS/Rust publicadas en PyPI/npm/crates.io.
+ */
+{
+  "$schema": "../../schemas/manifest.schema.json",
+  "id": "profile_library_sdk",
+  "name": "library_sdk",
+  "title": "Perfil para Bibliotecas y SDKs Reutilizables",
+  "version": "2.0.0",
+  "schema_version": "1.0.0",
+  "description": "Configuración enfocada en contratos de API pública, empaquetado, pruebas exhaustivas y compatibilidad SemVer.",
+  "owner": "AI Engineering & Architecture Team",
+  "created_at": "2026-08-29T21:00:00Z",
+  "updated_at": "2026-08-29T21:00:00Z",
+  "profile_config": {
+    "id": "library_sdk",
+    "name": "Library SDK Profile",
+    "description": "Bibliotecas públicas reutilizables, SDKs de cliente y paquetes distribuidos.",
+    "primary_language": "agnostic",
+    "enabled_modules": [
+      "module_architecture_hexagonal",
+      "module_glossary",
+      "module_sandbox",
+      "module_adr",
+      "module_testing",
+      "module_ci",
+      "module_security"
+    ],
+    "auto_modules": [
+      "module_memory_system"
+    ],
+    "custom_overrides": {
+      "semver_enforcement": "MUST",
+      "public_api_stability": "MUST"
+    }
+  }
+}

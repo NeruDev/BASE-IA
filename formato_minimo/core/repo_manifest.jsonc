@@ -1,0 +1,432 @@
+/**
+ * =============================================================================
+ * MANIFIESTO DECLARATIVO DE COMPOSICIÓN Y GOBERNANZA (BASE-IA v2.0.0)
+ * =============================================================================
+ * Archivo: formato_minimo/core/repo_manifest.jsonc
+ * Propósito: Manifiesto maestro de composición modular, reglas de dependencia,
+ *            conflictos de módulos, validadores asociados y perfiles predefinidos.
+ * Estándar: JSONC con validación JSON Schema (Draft 2020-12)
+ * =============================================================================
+ */
+{
+  "$schema": "../schemas/manifest.schema.json",
+  "id": "manifest_base_ia_v2",
+  "name": "repo_manifest",
+  "title": "Manifiesto Declarativo de Composición y Gobernanza de Repositorios (BASE-IA)",
+  "version": "2.0.0",
+  "schema_version": "1.0.0",
+  "description": "Manifiesto declarativo que define el núcleo obligatorio, catálogo de módulos acoplables, reglas de composición y perfiles para repositorios agénticos.",
+  "owner": "AI Engineering & Architecture Team",
+  "created_at": "2026-08-29T21:00:00Z",
+  "updated_at": "2026-08-29T21:00:00Z",
+
+  /* -------------------------------------------------------------------------
+   * NÚCLEO UNIVERSAL MÍNIMO OBLIGATORIO (Zero Overhead)
+   * ------------------------------------------------------------------------- */
+  "core_files": [
+    "core/AGENTS_core.md",
+    "core/README_core.md",
+    "core/repo_manifest.jsonc",
+    "core/gitignore_core",
+    "core/editorconfig_core"
+  ],
+
+  /* -------------------------------------------------------------------------
+   * CATÁLOGO DE MÓDULOS ACOPLABLES Y REGLAS DE COMPOSICIÓN
+   * ------------------------------------------------------------------------- */
+  "modules": {
+    "module_architecture_hexagonal": {
+      "id": "module_architecture_hexagonal",
+      "name": "Arquitectura Hexagonal (Puertos y Adaptadores)",
+      "description": "Topología desacoplada en capas concéntricas con regla de dependencia estricta hacia el núcleo de dominio.",
+      "source": "modules/architecture/hexagonal_template.md",
+      "target": "ARCHITECTURE.md",
+      "profiles": ["python_service", "library_sdk", "agentic_system"],
+      "requires": [],
+      "conflicts": [
+        "module_architecture_layered",
+        "module_architecture_pipeline",
+        "module_architecture_script",
+        "module_architecture_notebook",
+        "module_architecture_embedded"
+      ],
+      "validators": ["validators/validate_architecture.py"],
+      "severity_rules": {
+        "core_isolation": "MUST_NOT",
+        "diagrams_formal": "SHOULD"
+      }
+    },
+    "module_architecture_layered": {
+      "id": "module_architecture_layered",
+      "name": "Arquitectura en Capas Clásicas (N-Tier)",
+      "description": "Separación por capas horizontales de presentación, lógica de negocio y persistencia para aplicaciones web.",
+      "source": "modules/architecture/layered_template.md",
+      "target": "ARCHITECTURE.md",
+      "profiles": ["web_frontend"],
+      "requires": [],
+      "conflicts": [
+        "module_architecture_hexagonal",
+        "module_architecture_pipeline",
+        "module_architecture_script",
+        "module_architecture_notebook",
+        "module_architecture_embedded"
+      ],
+      "validators": [],
+      "severity_rules": {
+        "direct_db_from_views": "MUST_NOT"
+      }
+    },
+    "module_architecture_pipeline": {
+      "id": "module_architecture_pipeline",
+      "name": "Arquitectura de Pipeline de Datos y Flujos",
+      "description": "Procesamiento secuencial desacoplado en etapas (Source -> Transform -> Validate -> Sink).",
+      "source": "modules/architecture/pipeline_template.md",
+      "target": "ARCHITECTURE.md",
+      "profiles": [],
+      "requires": [],
+      "conflicts": [
+        "module_architecture_hexagonal",
+        "module_architecture_layered",
+        "module_architecture_script",
+        "module_architecture_notebook",
+        "module_architecture_embedded"
+      ],
+      "validators": [],
+      "severity_rules": {
+        "stage_idempotency": "MUST"
+      }
+    },
+    "module_architecture_script": {
+      "id": "module_architecture_script",
+      "name": "Arquitectura Ligera para Scripts y CLI",
+      "description": "Flujo de ejecución directo de 3 etapas (Parse -> Execute -> Output) sin sobrecarga estructural.",
+      "source": "modules/architecture/script_cli_template.md",
+      "target": "ARCHITECTURE.md",
+      "profiles": ["minimal"],
+      "requires": [],
+      "conflicts": [
+        "module_architecture_hexagonal",
+        "module_architecture_layered",
+        "module_architecture_pipeline",
+        "module_architecture_notebook",
+        "module_architecture_embedded"
+      ],
+      "validators": [],
+      "severity_rules": {
+        "exit_codes_posix": "SHOULD"
+      }
+    },
+    "module_architecture_notebook": {
+      "id": "module_architecture_notebook",
+      "name": "Arquitectura para Investigación y Notebooks de ML",
+      "description": "Estructura reproducible de ciencia de datos (Ingestión -> Features -> Modelos -> Métricas).",
+      "source": "modules/architecture/notebook_research_template.md",
+      "target": "ARCHITECTURE.md",
+      "profiles": ["research_datascience"],
+      "requires": [],
+      "conflicts": [
+        "module_architecture_hexagonal",
+        "module_architecture_layered",
+        "module_architecture_pipeline",
+        "module_architecture_script",
+        "module_architecture_embedded"
+      ],
+      "validators": [],
+      "severity_rules": {
+        "deterministic_seeds": "MUST"
+      }
+    },
+    "module_architecture_embedded": {
+      "id": "module_architecture_embedded",
+      "name": "Arquitectura de Abstracción de Hardware (HAL Embebido)",
+      "description": "Capas desacopladas (HAL -> Drivers -> Application) para microcontroladores y firmware bare-metal.",
+      "source": "modules/architecture/embedded_template.md",
+      "target": "ARCHITECTURE.md",
+      "profiles": ["embedded_iot"],
+      "requires": [],
+      "conflicts": [
+        "module_architecture_hexagonal",
+        "module_architecture_layered",
+        "module_architecture_pipeline",
+        "module_architecture_script",
+        "module_architecture_notebook"
+      ],
+      "validators": [],
+      "severity_rules": {
+        "dynamic_allocation_in_loops": "MUST_NOT"
+      }
+    },
+    "module_glossary": {
+      "id": "module_glossary",
+      "name": "Glosario Ontológico y Lenguaje Ubicuo",
+      "description": "Anclaje semántico de términos del dominio propio, conceptos polisémicos e invariantes del negocio.",
+      "source": "modules/glossary/GLOSSARY_template.md",
+      "target": "GLOSSARY.md",
+      "profiles": ["python_service", "web_frontend", "library_sdk", "documentation_only", "agentic_system"],
+      "requires": [],
+      "conflicts": [],
+      "validators": ["validators/validate_metadata.py"],
+      "severity_rules": {
+        "generic_terms_forbidden": "SHOULD_NOT"
+      }
+    },
+    "module_memory_system": {
+      "id": "module_memory_system",
+      "name": "Sistema de Memoria Cognitiva Multicapa",
+      "description": "Conjunto de artefactos estructurados para persistencia semántica (MEMORY.md), episódica (PROGRESS.md), de trabajo (SCRATCHPAD.md) y procedimental (PLAYBOOK.md).",
+      "source_dir": "modules/memory/",
+      "target_dir": ".agent/memory/",
+      "files_map": {
+        "modules/memory/MEMORY_template.md": ".agent/memory/MEMORY.md",
+        "modules/memory/PROGRESS_template.md": ".agent/memory/PROGRESS.md",
+        "modules/memory/SCRATCHPAD_template.md": ".agent/memory/SCRATCHPAD.md",
+        "modules/memory/PLAYBOOK_template.md": ".agent/memory/PLAYBOOK.md"
+      },
+      "profiles": ["python_service", "embedded_iot", "research_datascience", "agentic_system"],
+      "requires": [],
+      "conflicts": [],
+      "validators": ["validators/validate_metadata.py"],
+      "ttl_policy_enabled": true
+    },
+    "module_sandbox": {
+      "id": "module_sandbox",
+      "name": "Laboratorio con Blast Radius Controlado",
+      "description": "Directorio aislado y gobernado para experimentación y prototipado rápido sin riesgos para producción.",
+      "source_dir": "modules/sandbox/",
+      "target_dir": "sandbox/",
+      "files_map": {
+        "modules/sandbox/sandbox_guide.md": "docs/sandbox_guide.md",
+        "modules/sandbox/sandbox_readme.md": "sandbox/README.md",
+        "modules/sandbox/sandbox_gitignore": "sandbox/.gitignore"
+      },
+      "profiles": ["minimal", "python_service", "web_frontend", "embedded_iot", "library_sdk", "research_datascience", "agentic_system"],
+      "requires": [],
+      "conflicts": [],
+      "validators": [],
+      "isolation_level": "organizational_with_escalation"
+    },
+    "module_adr": {
+      "id": "module_adr",
+      "name": "Registro de Decisiones de Arquitectura (ADRs)",
+      "description": "Plantilla MADR y catálogo estructurado para la toma y trazabilidad de decisiones técnicas.",
+      "source_dir": "modules/adr/",
+      "target_dir": "docs/adr/",
+      "files_map": {
+        "modules/adr/adr_template.md": "docs/adr/template.md",
+        "modules/adr/adr_index_template.md": "docs/adr/index.md"
+      },
+      "profiles": ["python_service", "web_frontend", "embedded_iot", "library_sdk", "documentation_only", "agentic_system"],
+      "requires": [],
+      "conflicts": [],
+      "validators": ["validators/validate_metadata.py"]
+    },
+    "module_testing": {
+      "id": "module_testing",
+      "name": "Estándares y Configuración de Pruebas",
+      "description": "Configuración estándar de pytest con fixtures deterministas y marcadores de calidad.",
+      "source_dir": "modules/testing/",
+      "target_dir": "",
+      "files_map": {
+        "modules/testing/pytest_template.ini": "pytest.ini",
+        "modules/testing/conftest_template.py": "tests/conftest.py"
+      },
+      "profiles": ["python_service", "library_sdk", "research_datascience", "agentic_system"],
+      "requires": [],
+      "conflicts": [],
+      "validators": []
+    },
+    "module_ci": {
+      "id": "module_ci",
+      "name": "Automatización y Quality Gates en CI/CD",
+      "description": "Ganchos pre-commit y pipeline de GitHub Actions para linters, pruebas y validaciones automáticas.",
+      "source_dir": "modules/ci/",
+      "target_dir": "",
+      "files_map": {
+        "modules/ci/pre_commit_template.yaml": ".pre-commit-config.yaml",
+        "modules/ci/github_workflow_ci.yaml": ".github/workflows/ci.yaml"
+      },
+      "profiles": ["python_service", "web_frontend", "library_sdk", "documentation_only", "agentic_system"],
+      "requires": [],
+      "conflicts": [],
+      "validators": []
+    },
+    "module_security": {
+      "id": "module_security",
+      "name": "Políticas de Seguridad y Variables de Entorno",
+      "description": "Política de reporte responsable de vulnerabilidades (SECURITY.md) y plantilla de variables sin secretos (.env.example).",
+      "source_dir": "modules/security/",
+      "target_dir": "",
+      "files_map": {
+        "modules/security/security_policy_template.md": "SECURITY.md",
+        "modules/security/env_example_template": ".env.example"
+      },
+      "profiles": ["python_service", "web_frontend", "embedded_iot", "library_sdk", "agentic_system"],
+      "requires": [],
+      "conflicts": [],
+      "validators": ["validators/validate_metadata.py"]
+    }
+  },
+
+  /* -------------------------------------------------------------------------
+   * DEFINICIÓN INTEGRADA DE PERFILES DE COMPOSICIÓN
+   * ------------------------------------------------------------------------- */
+  "profiles_definition": {
+    "minimal": {
+      "id": "minimal",
+      "name": "Minimal Starter Profile",
+      "description": "Núcleo ultraligero para utilidades, scripts de un archivo o prototipos rápidos.",
+      "primary_language": "agnostic",
+      "enabled_modules": [
+        "module_architecture_script",
+        "module_sandbox"
+      ],
+      "auto_modules": [
+        "module_testing"
+      ],
+      "custom_overrides": {
+        "diagrams_formal": "MAY"
+      }
+    },
+    "python_service": {
+      "id": "python_service",
+      "name": "Python Service Profile",
+      "description": "Servicios Backend, APIs y Microservicios robustos en Python.",
+      "primary_language": "python",
+      "enabled_modules": [
+        "module_architecture_hexagonal",
+        "module_glossary",
+        "module_memory_system",
+        "module_sandbox",
+        "module_adr",
+        "module_testing",
+        "module_ci",
+        "module_security"
+      ],
+      "auto_modules": [],
+      "custom_overrides": {
+        "python_version": "3.11+",
+        "core_isolation": "MUST_NOT",
+        "diagrams_formal": "SHOULD"
+      }
+    },
+    "web_frontend": {
+      "id": "web_frontend",
+      "name": "Web Frontend Profile",
+      "description": "Proyectos TypeScript, React, Next.js, Vue y aplicaciones web de cliente.",
+      "primary_language": "typescript",
+      "enabled_modules": [
+        "module_architecture_layered",
+        "module_glossary",
+        "module_sandbox",
+        "module_adr",
+        "module_ci",
+        "module_security"
+      ],
+      "auto_modules": [
+        "module_memory_system"
+      ],
+      "custom_overrides": {
+        "framework": "react_next"
+      }
+    },
+    "embedded_iot": {
+      "id": "embedded_iot",
+      "name": "Embedded IoT Profile",
+      "description": "Sistemas embebidos, firmware en C/C++/Rust y código para hardware y microcontroladores.",
+      "primary_language": "cpp_rust",
+      "enabled_modules": [
+        "module_architecture_embedded",
+        "module_memory_system",
+        "module_sandbox",
+        "module_adr",
+        "module_security"
+      ],
+      "auto_modules": [
+        "module_testing"
+      ],
+      "custom_overrides": {
+        "dynamic_memory_allocation": "MUST_NOT",
+        "host_unit_tests": "SHOULD"
+      }
+    },
+    "library_sdk": {
+      "id": "library_sdk",
+      "name": "Library SDK Profile",
+      "description": "Bibliotecas públicas reutilizables, SDKs de cliente y paquetes distribuidos.",
+      "primary_language": "agnostic",
+      "enabled_modules": [
+        "module_architecture_hexagonal",
+        "module_glossary",
+        "module_sandbox",
+        "module_adr",
+        "module_testing",
+        "module_ci",
+        "module_security"
+      ],
+      "auto_modules": [
+        "module_memory_system"
+      ],
+      "custom_overrides": {
+        "semver_enforcement": "MUST",
+        "public_api_stability": "MUST"
+      }
+    },
+    "research_datascience": {
+      "id": "research_datascience",
+      "name": "Research & Data Science Profile",
+      "description": "Notebooks, experimentación de ML, pipelines de datos y papers científicos.",
+      "primary_language": "python_jupyter",
+      "enabled_modules": [
+        "module_architecture_notebook",
+        "module_memory_system",
+        "module_sandbox",
+        "module_testing"
+      ],
+      "auto_modules": [
+        "module_ci"
+      ],
+      "custom_overrides": {
+        "deterministic_seeds": "MUST",
+        "data_versioning": "SHOULD"
+      }
+    },
+    "documentation_only": {
+      "id": "documentation_only",
+      "name": "Documentation Only Profile",
+      "description": "Wikis técnicas, especificaciones, estándares y libros Docs-as-Code.",
+      "primary_language": "markdown",
+      "enabled_modules": [
+        "module_glossary",
+        "module_adr",
+        "module_ci"
+      ],
+      "auto_modules": [],
+      "custom_overrides": {
+        "frontmatter_validation": "MUST",
+        "markdown_linting": "MUST"
+      }
+    },
+    "agentic_system": {
+      "id": "agentic_system",
+      "name": "Agentic System Profile",
+      "description": "Multi-agentes, entornos MCP, workflows autónomos y arquitecturas cognitivas.",
+      "primary_language": "python_typescript",
+      "enabled_modules": [
+        "module_architecture_hexagonal",
+        "module_glossary",
+        "module_memory_system",
+        "module_sandbox",
+        "module_adr",
+        "module_testing",
+        "module_ci",
+        "module_security"
+      ],
+      "auto_modules": [],
+      "custom_overrides": {
+        "memory_layers_active": ["semantic", "episodic", "working", "procedural"],
+        "tool_permissions_strict": "MUST",
+        "blast_radius_containment": "MUST"
+      }
+    }
+  }
+}

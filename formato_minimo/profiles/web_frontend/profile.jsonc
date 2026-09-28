@@ -1,0 +1,38 @@
+/**
+ * =============================================================================
+ * PERFIL: WEB FRONTEND (TypeScript, React, Next, Vue)
+ * =============================================================================
+ * Ideal para: Aplicaciones web modernas, SPAs, clientes SSR y dashboards.
+ */
+{
+  "$schema": "../../schemas/manifest.schema.json",
+  "id": "profile_web_frontend",
+  "name": "web_frontend",
+  "title": "Perfil de Aplicaciones Web Frontend",
+  "version": "2.0.0",
+  "schema_version": "1.0.0",
+  "description": "Configuración modular para aplicaciones frontend basadas en TypeScript/JavaScript con componentes y pruebas.",
+  "owner": "AI Engineering & Architecture Team",
+  "created_at": "2026-08-29T21:00:00Z",
+  "updated_at": "2026-08-29T21:00:00Z",
+  "profile_config": {
+    "id": "web_frontend",
+    "name": "Web Frontend Profile",
+    "description": "Proyectos TypeScript, React, Next.js, Vue y aplicaciones web de cliente.",
+    "primary_language": "typescript",
+    "enabled_modules": [
+      "module_architecture_layered",
+      "module_glossary",
+      "module_sandbox",
+      "module_adr",
+      "module_ci",
+      "module_security"
+    ],
+    "auto_modules": [
+      "module_memory_system"
+    ],
+    "custom_overrides": {
+      "framework": "react_next"
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/NeruDev/BASE-IA/main/formato_minimo/schemas/rules.schema.json",
+  "title": "Agent Operational Rules & RFC 2119 Severity Schema",
+  "description": "Validation schema for agent operational rules, constraints, and authority levels.",
+  "type": "object",
+  "required": ["id", "rules"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]{3,64}$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "severity", "title", "statement"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^(rule|guard)_[a-z0-9_]{3,64}$"
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "MUST",
+              "MUST_NOT",
+              "SHOULD",
+              "SHOULD_NOT",
+              "MAY",
+              "PROJECT",
+              "AUTO"
+            ],
+            "description": "RFC 2119 / RFC 8174 graduated authority level"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 120
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 10
+          },
+          "rationale": {
+            "type": "string"
+          },
+          "conflict_resolution": {
+            "type": "string"
+          },
+          "enforcement": {
+            "type": "string",
+            "enum": ["prompt_contract", "static_validator", "pre_commit", "ci_pipeline", "runtime_sandbox"]
+          }
+        }
+      }
+    }
+  }
+}

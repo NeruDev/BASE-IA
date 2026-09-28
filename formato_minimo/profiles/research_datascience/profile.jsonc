@@ -1,0 +1,37 @@
+/**
+ * =============================================================================
+ * PERFIL: RESEARCH DATA SCIENCE (Notebooks, ML & Experimentos)
+ * =============================================================================
+ * Ideal para: Modelado predictivo, notebooks Jupyter, análisis de datos e investigación.
+ */
+{
+  "$schema": "../../schemas/manifest.schema.json",
+  "id": "profile_research_datascience",
+  "name": "research_datascience",
+  "title": "Perfil para Investigación, Machine Learning y Ciencia de Datos",
+  "version": "2.0.0",
+  "schema_version": "1.0.0",
+  "description": "Configuración adaptada a flujos de trabajo de análisis de datos, pipelines de ML y reproducibilidad experimental.",
+  "owner": "AI Engineering & Architecture Team",
+  "created_at": "2026-08-29T21:00:00Z",
+  "updated_at": "2026-08-29T21:00:00Z",
+  "profile_config": {
+    "id": "research_datascience",
+    "name": "Research & Data Science Profile",
+    "description": "Notebooks, experimentación de ML, pipelines de datos y papers científicos.",
+    "primary_language": "python_jupyter",
+    "enabled_modules": [
+      "module_architecture_notebook",
+      "module_memory_system",
+      "module_sandbox",
+      "module_testing"
+    ],
+    "auto_modules": [
+      "module_ci"
+    ],
+    "custom_overrides": {
+      "deterministic_seeds": "MUST",
+      "data_versioning": "SHOULD"
+    }
+  }
+}

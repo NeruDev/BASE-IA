@@ -3,14 +3,14 @@ id: tmpl_01m13a4scse3evx82paz29jky9
 name: license_template
 title: "Plantilla Estándar y Patrón Maestro de LICENSE"
 file_path: formato_minimo/license_template.md
-version: 1.0.0
+version: 2.0.0
 category: templates
 tags: [license, template, master-pattern, legal, mit, apache, spdx, intellectual-property, compliance]
 description: "Plantilla patrón canónica de LICENSE para repositorios de propósito general con textos legales MIT/Apache-2.0, identificadores SPDX y directivas de cumplimiento agéntico."
 owner: AI Engineering & Architecture Team
 status: active
 created_at: 2026-08-27T22:30:00Z
-updated_at: 2026-08-27T22:30:00Z
+updated_at: 2026-08-29T21:00:00Z
 dependencies: [00_global_standards, 06_license_specification]
 related_specs: [01_readme_specification, 03_agents_specification]
 schema_version: 1.0.0

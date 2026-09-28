@@ -1,0 +1,34 @@
+/**
+ * =============================================================================
+ * PERFIL: MINIMAL (Núcleo Puro Ultraligero)
+ * =============================================================================
+ * Ideal para: Scripts de un solo archivo, utilidades matemáticas, POCs rápidas.
+ */
+{
+  "$schema": "../../schemas/manifest.schema.json",
+  "id": "profile_minimal",
+  "name": "minimal",
+  "title": "Perfil Minimalista de Cero Sobrecarga",
+  "version": "2.0.0",
+  "schema_version": "1.0.0",
+  "description": "Configuración ultraligera que provee únicamente el núcleo obligatorio y espacio de sandbox.",
+  "owner": "AI Engineering & Architecture Team",
+  "created_at": "2026-08-29T21:00:00Z",
+  "updated_at": "2026-08-29T21:00:00Z",
+  "profile_config": {
+    "id": "minimal",
+    "name": "Minimal Starter Profile",
+    "description": "Núcleo ultraligero para utilidades, scripts de un archivo o prototipos rápidos.",
+    "primary_language": "agnostic",
+    "enabled_modules": [
+      "module_architecture_script",
+      "module_sandbox"
+    ],
+    "auto_modules": [
+      "module_testing"
+    ],
+    "custom_overrides": {
+      "diagrams_formal": "MAY"
+    }
+  }
+}

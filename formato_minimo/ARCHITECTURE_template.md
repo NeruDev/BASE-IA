@@ -3,14 +3,14 @@ id: tmpl_01m1395p09fbba3e2dj3yn0k7y
 name: architecture_template
 title: "Plantilla Estándar y Patrón Maestro de ARCHITECTURE.md"
 file_path: formato_minimo/ARCHITECTURE.md
-version: 1.0.0
+version: 2.0.0
 category: templates
 tags: [architecture, template, master-pattern, hexagonal-architecture, mermaid, state-machine, system-topology, agent-first]
 description: "Plantilla patrón canónica de ARCHITECTURE.md para repositorios de propósito general con topología de capas, flujos de secuencia, máquinas de estado y buenas prácticas agénticas integradas."
 owner: AI Engineering & Architecture Team
 status: active
 created_at: 2026-08-27T22:15:00Z
-updated_at: 2026-08-27T22:15:00Z
+updated_at: 2026-08-29T21:00:00Z
 dependencies: [00_global_standards, 02_architecture_specification]
 related_specs: [01_readme_specification, 03_agents_specification]
 schema_version: 1.0.0
@@ -26,7 +26,10 @@ schema_version: 1.0.0
 
 # Arquitectura del Sistema (ARCHITECTURE.md)
 
-Este documento define la **topología técnica, fronteras modulares, modelos de datos, gestión de estado y flujos de ejecución** del sistema, sirviendo como contrato estructural inmutable para desarrolladores humanos y agentes autónomos de IA.
+Este documento define la **topología técnica, fronteras modulares, modelos de datos, gestión de estado y flujos de ejecución** del sistema, sirviendo como contrato estructural para desarrolladores humanos y agentes autónomos de IA.
+
+> [!NOTE]
+> **Catálogo Plural de Arquitecturas:** Esta plantilla ilustra la **Arquitectura Hexagonal (Puertos y Adaptadores)**. Si su proyecto requiere un patrón diferente, consulte el catálogo de módulos en `modules/architecture/` (`hexagonal_template.md`, `layered_template.md`, `pipeline_template.md`, `script_cli_template.md`, `notebook_research_template.md`, `embedded_template.md`).
 
 ---
 
@@ -79,7 +82,9 @@ graph TD
 ```
 
 > [!IMPORTANT]
-> **Regla Inviolable de Diagramación Formal:** Queda terminantemente prohibido construir diagramas de flujo, procesos, mapas o secuencias mediante flechas de texto plano (`->`, `-->`, `==>`, `|`, `/`, `\`), caracteres ASCII o símbolos informales sujetos a interpretación ambigua. Todo flujo o relación visual DEBE modelarse obligatoriamente en formato **Mermaid** (` ```mermaid `) con nodos tipados y direcciones formales.
+> **Estándar de Diagramación Formal y Texto Limpio:**
+> - `SHOULD`: Modelar flujos de arquitectura, secuencias complejas y máquinas de estado en bloques **Mermaid** (` ```mermaid `) con nodos tipados y direcciones claras.
+> - `MAY`: Utilizar diagramas de texto plano o ASCII limpios en scripts simples, comentarios de código o terminales donde Mermaid resulte inaccesible o excesivo.
 
 ---
 
@@ -94,10 +99,10 @@ graph TD
 
 | **Capa Arquitectónica** | **Directorio Físico** | **Responsabilidad Principal** | **Reglas de Dependencia e Importación** |
 |:---|:---|:---|:---|
-| **Dominio Puro (*Core*)** | `src/paquete/core/` | Entidades puras, Value Objects, reglas de negocio e invariantes. | **Cero dependencias externas.** Prohibido importar `requests`, frameworks, DBs o módulos de E/S. |
+| **Dominio Puro (*Core*)** | `src/paquete/core/` | Entidades puras, Value Objects, reglas de negocio e invariantes. | `MUST_NOT` importar `requests`, frameworks, DBs o módulos de E/S. |
 | **Aplicación (*Services*)** | `src/paquete/services/` | Casos de uso, orquestación de pipelines, transacciones y coordinación. | Solo depende de `core/` y de interfaces/puertos abstractos. |
 | **Infraestructura (*Adapters*)** | `src/paquete/adapters/` | Implementación concreta de puertos: clientes de DB, APIs externas y LLMs. | Implementa interfaces de `services/` o `core/`. No contiene reglas de negocio. |
-| **Interfaz & Agentes (*Agents*)** | `src/paquete/agents/` | Definición de herramientas (MCP tools), schemas de función y CLI. | Consume `services/` mediante DTOs tipados. Prohibido saltar directamente a DB. |
+| **Interfaz & Agentes (*Agents*)** | `src/paquete/agents/` | Definición de herramientas (MCP tools), schemas de función y CLI. | Consume `services/` mediante DTOs tipados. `MUST_NOT` saltar directamente a DB. |
 
 ---
 

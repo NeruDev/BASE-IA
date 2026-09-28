@@ -79,6 +79,18 @@ flowchart TD
 | **Mutación Destructiva (*Critical*)** | Alto | ⚠️ **Requiere Confirmación** | `delete_file`, `git reset --hard`, `git push --force`, eliminación masiva de directorios o tablas. |
 | **Entrada / Salida Externa (*External I/O*)** | Medio-Alto | ⚠️ **Condicional** | `read_url_content`, llamadas a APIs externas de terceros, envío de correos o webhooks. |
 
+### 3.1 Taxonomía de Severidad y Niveles de Autoridad (RFC 2119 / RFC 8174)
+
+| Nivel de Autoridad | Código | Definición Operativa para el Agente | Acción en Conflicto |
+|:---|:---:|:---|:---|
+| **Obligatorio Crítico** | `MUST` / `MANDATORY` | Requisito de seguridad, integridad o invariante fundamental del sistema. | **Prohibido violar.** Abortar operación si se solicita. |
+| **Prohibición Absoluta** | `MUST_NOT` / `FORBIDDEN` | Acción que introduce vulnerabilidades, fugas o corrupción de datos. | **Prohibido ejecutar.** Rechazar y alertar al usuario. |
+| **Recomendado** | `SHOULD` / `RECOMMENDED` | Buena práctica estándar de ingeniería o convención del repositorio. | **Seguir por defecto.** Desviarse solo con justificación explícita. |
+| **Desaconsejado** | `SHOULD_NOT` / `DISCOURAGED` | Antipatrón que incrementa deuda técnica, fragilidad o ruido. | **Evitar.** Si es necesario, documentar la razón. |
+| **Opcional / Permitido** | `MAY` / `OPTIONAL` | Capacidad a discreción del desarrollador o del agente según contexto. | **Libre elección.** No requiere justificación formal. |
+| **Específico del Proyecto** | `PROJECT` / `CONTEXTUAL` | Convención o estándar propio del stack tecnológico del repositorio. | **Aplica dentro del proyecto**, configurable por perfil. |
+| **Inferencia Autónoma** | `AUTO` / `ADAPTIVE` | Decisión delegada al agente de IA evaluando contexto y complejidad. | **El agente evalúa** y activa/desactiva componentes. |
+
 ---
 
 <!-- ======================================================================= -->
@@ -107,7 +119,7 @@ Para evitar alucinaciones, asegurar determinismo y optimizar la indexación temp
    - *Ejemplo:* `ADR-0001`, `ERR_TOOL_TIMEOUT` (RFC 9457).
 
 ### 4.2 Orden Canónico de Metadatos YAML (Frontmatter)
-Para garantizar la coherencia y parseabilidad por AST en $O(1)$ de tokens, los campos del Frontmatter deben organizarse siempre en la siguiente secuencia canónica por capas:
+Para garantizar la coherencia y parseabilidad por AST optimizando el consumo de ventana de contexto mediante Progressive Disclosure, los campos del Frontmatter deben organizarse siempre en la siguiente secuencia canónica por capas:
 
 ```mermaid
 flowchart TD

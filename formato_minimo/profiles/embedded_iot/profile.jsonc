@@ -1,0 +1,38 @@
+/**
+ * =============================================================================
+ * PERFIL: EMBEDDED IOT (C/C++, Rust Bare-Metal, MCU)
+ * =============================================================================
+ * Ideal para: Microcontroladores (ESP32, STM32, RP2040, Arduino), firmware y hardware.
+ */
+{
+  "$schema": "../../schemas/manifest.schema.json",
+  "id": "profile_embedded_iot",
+  "name": "embedded_iot",
+  "title": "Perfil de Sistemas Embebidos e IoT",
+  "version": "2.0.0",
+  "schema_version": "1.0.0",
+  "description": "Configuración especializada para proyectos en C/C++/Rust con abstracción de hardware (HAL) y simulación.",
+  "owner": "AI Engineering & Architecture Team",
+  "created_at": "2026-08-29T21:00:00Z",
+  "updated_at": "2026-08-29T21:00:00Z",
+  "profile_config": {
+    "id": "embedded_iot",
+    "name": "Embedded IoT Profile",
+    "description": "Sistemas embebidos, firmware en C/C++/Rust y código para hardware y microcontroladores.",
+    "primary_language": "cpp_rust",
+    "enabled_modules": [
+      "module_architecture_embedded",
+      "module_memory_system",
+      "module_sandbox",
+      "module_adr",
+      "module_security"
+    ],
+    "auto_modules": [
+      "module_testing"
+    ],
+    "custom_overrides": {
+      "dynamic_memory_allocation": "MUST_NOT",
+      "host_unit_tests": "SHOULD"
+    }
+  }
+}
