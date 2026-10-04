@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "base-ia"
+version = "0.1.0"
+description = "Repositorio Base IA"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "yamllint>=1.38.0",
+]
+
+[tool.setuptools]
+packages = []

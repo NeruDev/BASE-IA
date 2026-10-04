@@ -1,0 +1,16 @@
+// Sintaxis y estilo Markdown. Los invariantes del repo (frontmatter, enlaces entre
+// archivos, ADRs) los valida scripts/checks/; aquí no se repiten.
+{
+  "config": {
+    "default": true,
+    // Prosa sin cortes de línea forzados.
+    "MD013": false,
+    // Los ADR repiten subtítulos bajo secciones distintas.
+    "MD024": { "siblings_only": true },
+    // El campo title del frontmatter no cuenta como título H1.
+    "MD025": { "front_matter_title": "" },
+    "MD041": { "front_matter_title": "" }
+  },
+  "gitignore": true,
+  "globs": ["**/*.md"]
+}

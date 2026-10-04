@@ -1,0 +1,15 @@
+# Configuración local de las bases teóricas externas (plantilla: config/external-bases.example)
+config/external-bases.local
+
+# Variables de entorno locales y secretos
+.env
+.env.*
+
+# Archivos del sistema operativo
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Editor: solo se versionan las tareas compartidas
+.vscode/*
+!.vscode/tasks.json

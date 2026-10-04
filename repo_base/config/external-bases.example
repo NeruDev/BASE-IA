@@ -1,0 +1,7 @@
+# Plantilla de configuración local de las bases teóricas externas.
+# Uso: copiar a config/external-bases.local (ignorado por git) y completar la ruta.
+# - Formato: una línea CLAVE=valor. El archivo se lee como datos; nunca se ejecuta.
+# - La variable de entorno EXTERNAL_BASES_DIR tiene prioridad sobre este archivo.
+# - Rutas con "/" (p. ej. C:/ruta/al/repo); las relativas se resuelven desde la raíz del repo.
+# - El repositorio externo es de solo lectura y debe estar fuera de este repo.
+EXTERNAL_BASES_DIR=

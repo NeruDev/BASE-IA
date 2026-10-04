@@ -1,0 +1,10 @@
+---
+# Sintaxis y estilo YAML: archivos .yaml/.yml y frontmatter de los .md (vía scripts/check.sh).
+# El esquema del frontmatter lo valida scripts/checks/headers.sh; aquí no se repite.
+extends: default
+
+ignore-from-file: .gitignore
+
+rules:
+  # Las descripciones del frontmatter pueden superar 80 caracteres.
+  line-length: disable

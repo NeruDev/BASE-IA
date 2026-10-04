@@ -1,0 +1,2 @@
+# Normaliza los archivos de texto a LF en el repositorio y en la copia de trabajo.
+* text=auto eol=lf
