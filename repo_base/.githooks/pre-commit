@@ -1,5 +1,6 @@
 #!/bin/sh
 # Hook pre-commit: ejecuta la autoevaluación sin comprobaciones de red.
 # Activación (una vez por clon): git config core.hooksPath .githooks
-# Nota: valida la copia de trabajo, no solo lo preparado con "git add".
+# El aislamiento comprueba también el índice; la lógica permanece en check.sh.
+cd "$(dirname "$0")/.." || exit 2
 CHECK_NO_NETWORK=1 exec sh scripts/check.sh

@@ -14,6 +14,15 @@ desktop.ini
 .venv/
 __pycache__/
 
-# Editor: solo se versionan las tareas compartidas
+# Editor: solo se versionan las tareas y exclusiones compartidas
 .vscode/*
 !.vscode/tasks.json
+!.vscode/settings.json
+
+# Biblioteca de chequeos: neutraliza lib/ si la plantilla vive en un repo Python
+!/scripts/lib/
+
+# Trabajo efímero: únicamente los dos archivos de control se versionan
+/sandbox/*
+!/sandbox/README.md
+!/sandbox/.gitkeep

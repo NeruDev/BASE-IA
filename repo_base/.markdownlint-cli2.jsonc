@@ -12,5 +12,6 @@
     "MD041": { "front_matter_title": "" }
   },
   "gitignore": true,
+  "ignores": ["sandbox/**"],
   "globs": ["**/*.md"]
 }

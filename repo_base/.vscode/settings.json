@@ -1,0 +1,9 @@
+{
+  "search.useIgnoreFiles": true,
+  "search.exclude": {
+    "**/sandbox/**": true
+  },
+  "files.watcherExclude": {
+    "**/sandbox/**": true
+  }
+}

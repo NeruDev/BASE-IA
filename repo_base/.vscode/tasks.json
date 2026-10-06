@@ -22,11 +22,20 @@
       "problemMatcher": []
     },
     {
-      "label": "hooks: activar",
-      "detail": "git config core.hooksPath .githooks",
+      "label": "sandbox: limpieza (dry-run)",
+      "detail": "Lista unidades de trabajo; no borra nada",
       "type": "process",
-      "command": "git",
-      "args": ["config", "core.hooksPath", ".githooks"],
+      "command": "sh",
+      "args": ["scripts/sandbox-clean.sh"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "hooks: activar",
+      "detail": "Dar permiso de ejecución al hook y activarlo en el repo instanciado",
+      "type": "process",
+      "command": "sh",
+      "args": ["-c", "chmod +x .githooks/pre-commit && git config core.hooksPath .githooks"],
       "problemMatcher": []
     }
   ]

@@ -7,7 +7,7 @@ category: architecture
 tags: [architecture, estructura, autoevaluacion, linters]
 description: "Estructura de carpetas, reparto de responsabilidades entre scripts propios y linters, y resolución de las bases teóricas externas."
 status: active
-updated_at: 2026-10-04T23:30:30Z
+updated_at: 2026-10-06T22:36:35Z
 ---
 
 # Arquitectura
@@ -33,6 +33,7 @@ El repositorio tiene tres piezas: documentación por capas (cada archivo respond
 │   ├── copilot-instructions.md     Adaptador: apunta a AGENTS.md
 │   └── instructions/               Reglas por ruta para Copilot (*.instructions.md)
 ├── .vscode/tasks.json              Tareas de VS Code
+├── .vscode/settings.json           Exclusiones de búsqueda y observador
 ├── config/
 │   └── external-bases.example      Plantilla de la configuración local (versionada)
 ├── docs/
@@ -40,10 +41,12 @@ El repositorio tiene tres piezas: documentación por capas (cada archivo respond
 │   └── memory/                     Memoria del repositorio: índice README.md y entries.md
 ├── scripts/
 │   ├── check.sh                    Punto de entrada único de la autoevaluación
+│   ├── sandbox-clean.sh            Limpieza explícita, dry-run por defecto
 │   ├── checks/                     Un script por invariante del repositorio
 │   └── lib/common.sh               Utilidades compartidas por los chequeos
 ├── src/                            Código del proyecto (vacío en la plantilla)
-├── tests/                          Pruebas del proyecto (vacío en la plantilla)
+├── tests/                          Regresión del aislamiento; sin pruebas de aplicación
+├── sandbox/                        Trabajo efímero ignorado, salvo dos controles
 └── .venv/                          Entorno virtual de Python (local, ignorado por git)
 ```
 
@@ -73,7 +76,8 @@ Cada comprobación tiene un solo responsable:
 | Enlaces internos | `scripts/checks/internal-links.sh` | Que los destinos relativos existan; rechaza rutas absolutas. |
 | Memoria del repositorio | `scripts/checks/memory.sh` | Presupuestos de [ADR-0004](docs/adr/0004-repository-memory.md), esquema y orden de los campos, ids únicos, coherencia entre índice y entradas, evidencia como ruta o commit, sin rutas absolutas ni tokens, y avisos de consolidación y caducidad. |
 | Configuración externa | `scripts/checks/external-config.sh` | Que el archivo local esté ignorado y sin versionar, y que la ruta configurada exista, sea legible y esté fuera del repo. |
-| Shell | shellcheck | Scripts de `scripts/` y `.githooks/`. |
+| Aislamiento efímero | `scripts/checks/sandbox.sh` | Índice y referencias operativas (incluidas las preparadas), reglas efectivas de Git, evidencia durable y avisos de antigüedad y tamaño. |
+| Shell | shellcheck | Archivos `.sh` y hooks seleccionados, en modo `sh`. |
 | Markdown | markdownlint-cli2 | Estilo y anclas `#` dentro del mismo archivo. |
 | YAML | yamllint | Sintaxis de los `.yaml` y del frontmatter de cada `.md`. |
 | Enlaces externos | lychee | URLs `http`/`https`. Se omite con `CHECK_NO_NETWORK=1`. |
@@ -82,7 +86,10 @@ Comportamiento:
 
 - Si un linter no está instalado, se emite un `AVISO` con el comando de instalación y se omite. Con `CHECK_STRICT=1` cuenta como fallo.
 - Sin bases externas configuradas solo hay un `AVISO`, para que un clon recién creado pase el chequeo.
-- Límites conocidos: no se validan las anclas hacia otros archivos (`otro.md#seccion`), y el hook revisa la copia de trabajo, no solo lo preparado con `git add`.
+- `list_files` excluye el área efímera por defecto; `sh scripts/check.sh RUTA ...` añade rutas explícitas para promoción, con las mismas reglas de los linters y de documentación.
+- Límites conocidos: no se validan las anclas hacia otros archivos (`otro.md#seccion`). El aislamiento revisa tanto índice como copia de trabajo; los demás chequeos revisan la copia de trabajo.
+- El análisis de dependencias es estático: detecta el nombre literal de la zona en archivos operativos, no rutas construidas dinámicamente. Las menciones Markdown son documentales, no autorizan dependencias de ejecución.
+- La limpieza exige raíz de plantilla, rechaza enlaces y solo borra unidades inmediatas completas; sin escrituras concurrentes. Detalles y excepciones en [ADR-0005](docs/adr/0005-ephemeral-workspace.md).
 
 ## Bases teóricas externas
 

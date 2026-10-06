@@ -7,7 +7,7 @@ category: guides
 tags: [contributing, git, commits, adr, frontmatter, memoria]
 description: "Procedimientos para hacer cambios, instalar los linters opcionales, crear documentos con frontmatter válido, generar ids, registrar ADRs y mantener la memoria del repositorio."
 status: active
-updated_at: 2026-10-04T23:30:30Z
+updated_at: 2026-10-06T22:36:35Z
 ---
 
 # Guía de contribución
@@ -18,7 +18,20 @@ updated_at: 2026-10-04T23:30:30Z
 2. Ejecutar `sh scripts/check.sh` y corregir hasta que termine con código 0.
 3. Hacer commit con [Conventional Commits](https://www.conventionalcommits.org/): `tipo(ámbito opcional): descripción`. Tipos habituales: `feat`, `fix`, `docs`, `refactor`, `test`, `build`, `ci` y `chore`.
 
-El hook pre-commit repite la autoevaluación sin red. Se activa una vez por clon con `git config core.hooksPath .githooks`.
+El hook pre-commit repite la autoevaluación sin red. Se activa una vez por clon desde `sh` con `chmod +x .githooks/pre-commit && git config core.hooksPath .githooks` (o la tarea *hooks: activar*). El permiso es necesario en sistemas POSIX.
+
+## Trabajo efímero y promoción
+
+Reglas en [sandbox/README.md](sandbox/README.md) y [ADR-0005](docs/adr/0005-ephemeral-workspace.md).
+
+1. Crear una unidad `sandbox/AAAAMMDD-tarea/` únicamente si pipes o variables no bastan.
+2. Validar el archivo o directorio explícito con `sh scripts/check.sh sandbox/AAAAMMDD-tarea/archivo`; no se ignora aunque Git lo ignore. Para documentos, usar el frontmatter de su ruta actual.
+3. Mover (no copiar) al destino final, actualizar `file_path` si corresponde y repetir `sh scripts/check.sh`.
+4. Borrar la unidad propia; revisar `git status --short`. La limpieza colectiva usa `sh scripts/sandbox-clean.sh` (dry-run), `--yes` para borrar y `--older-than 7` para seleccionar unidades antiguas completas.
+
+El área temporal no se recorre por defecto. Las pruebas permanentes se ejecutan con `sh tests/sandbox.sh`; sus repositorios de prueba y registros usan el temporal del sistema y se eliminan con `trap`.
+
+Abrir esta plantilla como carpeta de trabajo de VS Code para aplicar sus tareas y exclusiones. Las exclusiones no impiden abrir archivos ni su acceso explícito por un agente; no son una barrera de seguridad. El hook debe activarse en cada repo instanciado; no se cambia la configuración del Git contenedor.
 
 ## Linters opcionales
 
@@ -116,7 +129,7 @@ Añadir el bloque al final de `docs/memory/entries.md`, separado por una línea 
 | `síntoma` | Mensaje o comportamiento observable, resumido; nunca la traza completa. |
 | `causa` | Causa raíz, no la descripción del síntoma. |
 | `regla` | Acción concreta que evita el problema. Se resume en la columna «Regla» del índice. |
-| `evidencia` | Enlace relativo a un archivo del repositorio o `commit <hash>`; nunca una copia ni una URL. |
+| `evidencia` | Enlace relativo a un archivo final versionado o `commit <hash>`; nunca una copia, URL ni ruta de trabajo efímero. |
 | `estado` | `activa`; `promovida` u `obsoleta` solo mientras el borrado está pendiente. |
 | `recurrencias` | Veces observado, entero mayor o igual que 1. |
 | `fecha` | Última confirmación (alta, recurrencia o revisión), en AAAA-MM-DD. La fecha de alta la conserva git. |

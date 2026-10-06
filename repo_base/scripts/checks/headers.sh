@@ -137,8 +137,11 @@ END {
 }
 '
 
-ids=$(mktemp) || exit 2
-trap 'rm -f "$ids"' EXIT
+work=$(mktemp -d) || exit 2
+ids=$work/ids
+: >"$ids"
+trap 'rm -rf "$work"' 0
+trap 'exit 2' HUP INT TERM
 
 files=$(list_md)
 while IFS= read -r f; do
