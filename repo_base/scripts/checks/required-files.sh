@@ -23,6 +23,8 @@ CLAUDE.md
 .github/instructions/markdown.instructions.md
 .github/instructions/shell.instructions.md
 docs/adr/README.md
+docs/memory/README.md
+docs/memory/entries.md
 config/external-bases.example
 .editorconfig
 .gitattributes

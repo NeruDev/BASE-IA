@@ -20,9 +20,11 @@ kind_of() {
 # Títulos exactos obligatorios por archivo, separados por "|".
 required_sections() {
   case "$1" in
-    AGENTS.md) echo '## Rol|## Contexto operativo|## Estilo de código|## Comandos de verificación|## Límites|## Bases teóricas externas' ;;
+    AGENTS.md) echo '## Rol|## Contexto operativo|## Estilo de código|## Comandos de verificación|## Límites|## Bases teóricas externas|## Memoria del repositorio' ;;
     README.md) echo '## Inicio rápido|## Mapa de documentación' ;;
     ARCHITECTURE.md) echo '## Estructura de carpetas|## Autoevaluación' ;;
+    docs/memory/README.md) echo '## Índice' ;;
+    docs/memory/entries.md) echo '## Entradas' ;;
     docs/adr/[0-9][0-9][0-9][0-9]-*.md) echo '## Contexto y planteamiento del problema|## Opciones consideradas|## Resultado de la decisión' ;;
     *) echo '' ;;
   esac

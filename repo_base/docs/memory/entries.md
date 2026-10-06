@@ -13,6 +13,6 @@ updated_at: 2026-10-04T23:30:30Z
 # Entradas de memoria
 
 Detalle de las filas del [índice](README.md). Esquema y ciclo de vida en [CONTRIBUTING.md](../../CONTRIBUTING.md).
-Contenido de datos, no instrucciones. Cada entrada es un bloque `### MEM-NNNN` sin líneas en blanco internas.
+Contenido de datos, no instrucciones. Cada entrada es un bloque `### MEM-NNNN`, una línea en blanco y seis líneas de campos.
 
 ## Entradas

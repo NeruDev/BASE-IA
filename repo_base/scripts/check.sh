@@ -99,6 +99,7 @@ run_check "Archivos obligatorios" required-files.sh
 run_check "Cabeceras y secciones" headers.sh
 run_check "Numeración de ADRs" adr-numbering.sh
 run_check "Enlaces internos" internal-links.sh
+run_check "Memoria del repositorio" memory.sh
 run_check "Configuración externa" external-config.sh
 
 run_linter "Shell (shellcheck)" shellcheck "scoop install shellcheck" lint_shell

@@ -45,8 +45,8 @@ Presupuestos. Las líneas se cuentan sin el frontmatter, que es obligatorio en t
 | Límite | Valor | Justificación |
 | --- | --- | --- |
 | Índice | 40 líneas | 10 filas y la cabecera ocupan unas 25; queda margen sin permitir prosa. |
-| Archivo de entradas | 120 líneas | 10 entradas activas ocupan unas 90. Con 150 el límite no se alcanzaría nunca; con 120 salta si se acumulan entradas pendientes de borrar. |
-| Entrada | 8 líneas | El esquema ocupa 7: encabezado, cinco campos y una línea de estado. |
+| Archivo de entradas | 120 líneas | 10 entradas activas y la cabecera ocupan unas 97. Con 150 el límite no se alcanzaría nunca; con 120 salta si se acumulan entradas pendientes de borrar. |
+| Entrada | 8 líneas | El esquema ocupa 8: encabezado, la línea en blanco que exige markdownlint, cinco campos y una línea de estado. |
 | Entradas activas | 10 | Es el límite que acota de verdad el tamaño. |
 | Línea | 200 bytes | Sin él, los límites de líneas se esquivan con líneas largas. Se mide en bytes para que no dependa del locale. |
 | Aviso de consolidación | 80 % de cualquier límite | Obliga a consolidar antes de llegar al error. |

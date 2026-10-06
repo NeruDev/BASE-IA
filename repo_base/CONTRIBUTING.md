@@ -4,10 +4,10 @@ name: contributing
 title: "Guía de contribución"
 file_path: CONTRIBUTING.md
 category: guides
-tags: [contributing, git, commits, adr, frontmatter]
-description: "Procedimientos para hacer cambios, instalar los linters opcionales, crear documentos con frontmatter válido, generar ids y registrar ADRs."
+tags: [contributing, git, commits, adr, frontmatter, memoria]
+description: "Procedimientos para hacer cambios, instalar los linters opcionales, crear documentos con frontmatter válido, generar ids, registrar ADRs y mantener la memoria del repositorio."
 status: active
-updated_at: 2026-10-04T22:30:00Z
+updated_at: 2026-10-04T23:30:30Z
 ---
 
 # Guía de contribución
@@ -28,7 +28,7 @@ Ninguno es obligatorio: si falta alguno, `scripts/check.sh` lo omite con un avis
 | --- | --- | --- |
 | shellcheck | `scoop install shellcheck` | Scoop |
 | markdownlint-cli2 | `npm install -g markdownlint-cli2` | Node.js |
-| yamllint | `pip install yamllint` | Python |
+| yamllint | `python -m pip install yamllint`, con `.venv/` activo | Python ([ADR-0003](docs/adr/0003-scripting-languages.md)) |
 | lychee | `scoop install lychee` | Scoop |
 
 ## Crear un documento
@@ -78,3 +78,71 @@ Para obtener la fecha de `updated_at` en UTC: `(Get-Date).ToUniversalTime().ToSt
 2. Crear `docs/adr/NNNN-titulo-en-kebab-case.md` a partir de la plantilla del índice, con un `id` de prefijo `adr`.
 3. Añadir la fila correspondiente a la tabla del índice.
 4. Para reemplazar una decisión aceptada, crear un ADR nuevo y cambiar el `status` del anterior a `superseded by NNNN`.
+
+## Registrar memoria
+
+La memoria vive en [docs/memory/](docs/memory/README.md) y la rigen [AGENTS.md](AGENTS.md) y el [ADR-0004](docs/adr/0004-repository-memory.md). Ningún cambio de memoria se aplica sin la aprobación del usuario.
+
+### Dónde va cada cosa
+
+| Información | Destino |
+| --- | --- |
+| Error repetido, fallo no obvio o decisión de proceso duradera | `docs/memory/` |
+| Regla de conducta permanente para agentes | `AGENTS.md` o `.github/instructions/` |
+| Decisión con alternativas y consecuencias | `docs/adr/` |
+| Procedimiento paso a paso recurrente | Este archivo |
+| Invariante que un script puede comprobar | `scripts/checks/` o la configuración de un linter |
+| Avance de tareas y cambios realizados | `git log` o `CHANGELOG.md` |
+| Hipótesis, trazas y notas de trabajo | No se versionan |
+
+### Plantilla de entrada
+
+Añadir el bloque al final de `docs/memory/entries.md`, separado por una línea en blanco, y la fila al índice con el mismo id y estado. El id es el «Próximo id» del índice, que después se incrementa; los números no se reutilizan.
+
+```markdown
+### MEM-0001
+
+- disparador: al <situación en la que aplica>
+- síntoma: <qué se observa, resumido>
+- causa: <causa raíz>
+- regla: <acción concreta, en imperativo>
+- evidencia: [archivo](../../ruta/al/archivo) o commit <hash>
+- estado: activa; recurrencias: 1; fecha: AAAA-MM-DD; origen: comprobado
+```
+
+| Campo | Regla |
+| --- | --- |
+| `disparador` | Cuándo aplica, como situación. Se resume en la columna «Cuándo aplica» del índice. |
+| `síntoma` | Mensaje o comportamiento observable, resumido; nunca la traza completa. |
+| `causa` | Causa raíz, no la descripción del síntoma. |
+| `regla` | Acción concreta que evita el problema. Se resume en la columna «Regla» del índice. |
+| `evidencia` | Enlace relativo a un archivo del repositorio o `commit <hash>`; nunca una copia ni una URL. |
+| `estado` | `activa`; `promovida` u `obsoleta` solo mientras el borrado está pendiente. |
+| `recurrencias` | Veces observado, entero mayor o igual que 1. |
+| `fecha` | Última confirmación (alta, recurrencia o revisión), en AAAA-MM-DD. La fecha de alta la conserva git. |
+| `origen` | `comprobado` (reproducido), `usuario`, `documentación` o `inferido` (sin comprobar). |
+| `vence` | Opcional, al final de la última línea: `; vence: AAAA-MM-DD`. Para lecciones atadas a una versión de una herramienta. |
+
+Límites que comprueba `scripts/checks/memory.sh`: 8 líneas por entrada (encabezado, una línea en blanco y seis de campos), 200 bytes por línea, 10 entradas activas, 120 líneas en `entries.md` y 40 en el índice, sin contar el frontmatter.
+
+### Ciclo de vida
+
+| Acción | Cuándo | Qué cambia |
+| --- | --- | --- |
+| Alta | Se cumple un criterio de entrada y no hay una entrada equivalente | Entrada nueva y fila en el índice. |
+| Recurrencia | El problema vuelve a ocurrir | `recurrencias` + 1 y `fecha` del día. |
+| Revisión | Se aplicó la regla y sigue siendo válida, o avisa la caducidad de 30 días | Solo `fecha`. |
+| Promoción | 3 recurrencias o más, o regla válida para cualquier proyecto | La regla pasa a su destino según la tabla anterior; se borran la entrada y su fila en el mismo commit: `docs(memory): promueve MEM-NNNN a <destino>`. |
+| Borrado | La causa ya no existe, la evidencia desapareció, venció o se fusionó con otra | Se borran la entrada y su fila: `docs(memory): borra MEM-NNNN`. Git conserva el histórico; no se crean archivos de archivo. |
+
+### Consolidar la memoria
+
+Se hace antes de cualquier alta cuando `sh scripts/check.sh` emite un aviso o un error de memoria:
+
+1. Ejecutar `sh scripts/checks/memory.sh` y anotar cada aviso y error.
+2. Borrar las entradas `promovida` u `obsoleta` y sus filas.
+3. Fusionar duplicados (misma causa o misma regla): conservar el id más antiguo, sumar las recurrencias y borrar el resto.
+4. Promover las entradas que cumplan el criterio de promoción.
+5. Revisar las caducadas o vencidas: confirmar (`fecha` del día) o borrar.
+6. Comprobar que quedan como máximo 7 entradas activas y que `sh scripts/check.sh` termina con código 0.
+7. Proponer el lote al usuario y, tras su aprobación, hacer un commit `docs(memory): consolida`.

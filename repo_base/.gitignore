@@ -10,6 +10,10 @@ Thumbs.db
 desktop.ini
 .DS_Store
 
+# Entorno virtual de Python (ADR-0003)
+.venv/
+__pycache__/
+
 # Editor: solo se versionan las tareas compartidas
 .vscode/*
 !.vscode/tasks.json

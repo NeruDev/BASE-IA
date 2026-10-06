@@ -7,7 +7,7 @@ category: guides
 tags: [readme, plantilla, inicio-rapido]
 description: "Qué es esta plantilla, cómo instanciarla en un proyecto nuevo y qué pregunta responde cada documento."
 status: active
-updated_at: 2026-10-04T22:30:00Z
+updated_at: 2026-10-04T23:30:30Z
 ---
 
 # Repositorio base universal
@@ -16,7 +16,7 @@ Plantilla agnóstica del lenguaje para proyectos de un único desarrollador asis
 
 ## Inicio rápido
 
-Requisito: Git para Windows (aporta `sh`). Los linters son opcionales; su instalación está en [CONTRIBUTING.md](CONTRIBUTING.md).
+Requisito: Git para Windows (aporta `sh`). PowerShell 7 y Python 3 son opcionales, según [ADR-0003](docs/adr/0003-scripting-languages.md). Los linters son opcionales; su instalación está en [CONTRIBUTING.md](CONTRIBUTING.md).
 
 1. Copiar la plantilla en la carpeta del proyecto e inicializar git: `git init -b main`.
 2. Activar el hook pre-commit: `git config core.hooksPath .githooks` (o la tarea de VS Code *hooks: activar*).
@@ -33,5 +33,6 @@ Requisito: Git para Windows (aporta `sh`). Los linters son opcionales; su instal
 | [ARCHITECTURE.md](ARCHITECTURE.md) | ¿Cómo está organizado el repositorio y cómo funciona la autoevaluación? |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | ¿Cómo hago un cambio, un documento nuevo o un ADR? |
 | [docs/adr/](docs/adr/README.md) | ¿Por qué se decidió así? |
+| [docs/memory/](docs/memory/README.md) | ¿Qué errores y lecciones ya se aprendieron aquí? |
 | [.github/instructions/](.github/instructions/) | Reglas por tipo de archivo para GitHub Copilot. |
 | [CLAUDE.md](CLAUDE.md), [.github/copilot-instructions.md](.github/copilot-instructions.md) | Adaptadores que solo apuntan a AGENTS.md. |

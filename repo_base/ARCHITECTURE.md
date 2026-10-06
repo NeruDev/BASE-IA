@@ -7,7 +7,7 @@ category: architecture
 tags: [architecture, estructura, autoevaluacion, linters]
 description: "Estructura de carpetas, reparto de responsabilidades entre scripts propios y linters, y resolución de las bases teóricas externas."
 status: active
-updated_at: 2026-10-04T22:30:00Z
+updated_at: 2026-10-04T23:30:30Z
 ---
 
 # Arquitectura
@@ -36,14 +36,18 @@ El repositorio tiene tres piezas: documentación por capas (cada archivo respond
 ├── config/
 │   └── external-bases.example      Plantilla de la configuración local (versionada)
 ├── docs/
-│   └── adr/                        ADR en formato MADR e índice README.md
+│   ├── adr/                        ADR en formato MADR e índice README.md
+│   └── memory/                     Memoria del repositorio: índice README.md y entries.md
 ├── scripts/
 │   ├── check.sh                    Punto de entrada único de la autoevaluación
 │   ├── checks/                     Un script por invariante del repositorio
 │   └── lib/common.sh               Utilidades compartidas por los chequeos
 ├── src/                            Código del proyecto (vacío en la plantilla)
-└── tests/                          Pruebas del proyecto (vacío en la plantilla)
+├── tests/                          Pruebas del proyecto (vacío en la plantilla)
+└── .venv/                          Entorno virtual de Python (local, ignorado por git)
 ```
+
+La autoevaluación es POSIX `sh`; las utilidades pueden usar PowerShell 7 o Python dentro de `.venv/` ([ADR-0003](docs/adr/0003-scripting-languages.md)).
 
 ## Autoevaluación
 
@@ -67,6 +71,7 @@ Cada comprobación tiene un solo responsable:
 | Cabeceras y secciones | `scripts/checks/headers.sh` | Esquema de frontmatter de [ADR-0002](docs/adr/0002-frontmatter-schema.md), unicidad de `id`, coherencia de `name` y `file_path`, y secciones obligatorias por archivo. |
 | Numeración de ADRs | `scripts/checks/adr-numbering.sh` | Nombres `NNNN-titulo.md`, secuencia desde 0001 sin huecos ni duplicados, y presencia en el índice. |
 | Enlaces internos | `scripts/checks/internal-links.sh` | Que los destinos relativos existan; rechaza rutas absolutas. |
+| Memoria del repositorio | `scripts/checks/memory.sh` | Presupuestos de [ADR-0004](docs/adr/0004-repository-memory.md), esquema y orden de los campos, ids únicos, coherencia entre índice y entradas, evidencia como ruta o commit, sin rutas absolutas ni tokens, y avisos de consolidación y caducidad. |
 | Configuración externa | `scripts/checks/external-config.sh` | Que el archivo local esté ignorado y sin versionar, y que la ruta configurada exista, sea legible y esté fuera del repo. |
 | Shell | shellcheck | Scripts de `scripts/` y `.githooks/`. |
 | Markdown | markdownlint-cli2 | Estilo y anclas `#` dentro del mismo archivo. |

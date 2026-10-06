@@ -7,7 +7,7 @@ category: architecture
 tags: [adr, madr, indice, decisiones]
 description: "Índice de los ADR del repositorio, con su estado, y plantilla MADR adaptada al esquema de frontmatter del repo."
 status: active
-updated_at: 2026-10-04T22:30:00Z
+updated_at: 2026-10-04T23:30:30Z
 ---
 
 # Decisiones de arquitectura
@@ -20,6 +20,8 @@ Los ADR registran el porqué de las decisiones que un agente o una persona no de
 | --- | --- | --- |
 | [0001](0001-foundational-decisions.md) | Decisiones fundacionales de la plantilla | accepted |
 | [0002](0002-frontmatter-schema.md) | Esquema de frontmatter para un repositorio individual | accepted |
+| [0003](0003-scripting-languages.md) | Lenguajes de script: POSIX sh, PowerShell 7 y Python en entorno virtual (sustituye el tema Dependencias de 0001) | accepted |
+| [0004](0004-repository-memory.md) | Memoria del repositorio: índice, entradas atómicas y presupuestos verificables | accepted |
 
 ## Plantilla
 
